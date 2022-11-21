@@ -1,0 +1,58 @@
+@import url("../node_modules/font-awesome/css/font-awesome.min.css");
+.section-login {
+  padding: 100px 0; }
+  .section-login .user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #F67823;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px; }
+  .section-login .brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    padding: 10px;
+    text-align: center; }
+  .section-login .brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white; }
+  .section-login .form_container {
+    margin-top: 100px; }
+  .section-login .login_btn {
+    width: 100%;
+    background: #c0392b !important;
+    color: white !important; }
+    .section-login .login_btn:focus {
+      box-shadow: none !important;
+      outline: 0px !important; }
+  .section-login .login_container {
+    padding: 0 2rem; }
+  .section-login .input-group-text {
+    background: #c0392b !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important; }
+    .section-login .input-group-text .fas {
+      padding: 5px 3px; }
+  .section-login .input_user {
+    box-shadow: none !important;
+    outline: 0px !important; }
+  .section-login .input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important; }
+  .section-login .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #c0392b !important; }
