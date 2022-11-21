@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.7.2",
+    "node-sass": "^8.0.0"
+  },
+  "name": "dp04-exserise-nodejs",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
+    "start": "nodemon --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lanphan-dp04/Dp04-Exserise-NodeJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lanphan-dp04/Dp04-Exserise-NodeJS/issues"
+  },
+  "homepage": "https://github.com/lanphan-dp04/Dp04-Exserise-NodeJS#readme"
+}
