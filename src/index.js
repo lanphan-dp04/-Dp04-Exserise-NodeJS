@@ -5,8 +5,9 @@ const path = require("path");
 const methodOverride = require('method-override')
 const bodyParser = require("body-parser");
 const db = require("./config/db");
+let cors = require("cors");
 const app = express()
-const port = 3000
+const port = 5000
 
 const route = require('./routes/index.route')
 app.use(express.static(path.join(__dirname, "public")));
@@ -14,6 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //connect db
 db.connect();
 
+app.use(cors());
 app.use(
   bodyParser.urlencoded({
     extended: true,
@@ -39,7 +41,6 @@ app.use(morgan('combined'))
 app.get('/', (req, res) => {
   res.render('home')
 })
-
 
 
 
