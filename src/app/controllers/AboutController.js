@@ -1,9 +1,9 @@
-const Partner = require("../models/Partner");
+const About = require("../models/About");
 const jwt = require("jsonwebtoken");
 
-class PartnerController {
+class AboutController {
   get(req, res, next) {
-    Partner.find({})
+    About.find({})
     .then(data => {
       res.json(data)
     })
@@ -11,4 +11,4 @@ class PartnerController {
   }
   }
 
-module.exports = new PartnerController();
+module.exports = new AboutController();

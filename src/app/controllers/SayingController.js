@@ -1,9 +1,9 @@
-const United = require("../models/United");
+const Saying = require("../models/Saying");
 const jwt = require("jsonwebtoken");
 
-class UnitedControllor {
+class SayingControllor {
   get(req, res, next) {
-    United.find({})
+    Saying.find({})
     .then(data => {
       res.json(data)
     })
@@ -11,4 +11,4 @@ class UnitedControllor {
   }
   }
 
-module.exports = new UnitedControllor();
+module.exports = new SayingControllor();

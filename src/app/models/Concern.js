@@ -2,20 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const Partner = new Schema({
+const Concern = new Schema({
   id: {
     type: String,
     requited: true,
     maxLength: 255,
   },
-  linkweb: {
+  title: {
     type: String,
     requited: true,
   },
-  srcimage: {
+  desc: {
     type: String,
     requited: true,
-  }
+  },
 });
 
-module.exports = mongoose.model("Partner", Partner,'partners');
+module.exports = mongoose.model("Concern", Concern,'concern');
