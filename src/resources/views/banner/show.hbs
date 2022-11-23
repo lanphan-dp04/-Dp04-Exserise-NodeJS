@@ -1,0 +1,146 @@
+<div class="mt-4">
+  <h3>MY COURSE</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Image Banner</th>
+        <th scope="col">Content Banner</th>
+        <th scope="col">
+          <a
+            href=""
+            data-toggle="modal"
+            data-target="#create-course-modal"
+          >Create Banner</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each banner}}
+        <tr>
+          <td scope="row">{{sum @index 1}}</td>
+          <td scope="row">
+            <img
+              class="banner-item"
+              src="{{this._doc.srcBanner}}"
+              alt="banner"
+            />
+          </td>
+          <td scope="row">{{this._doc.content}}</td>
+          <td>
+            <a  class="btn btn-link">Update</a>
+            <a
+              href=""
+              class="btn btn-link"
+              data-toggle="modal"
+              data-id="{{this._id}}"
+              data-target="#delete-course-modal"
+            >Delete</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div
+  class="modal fade"
+  id="delete-course-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Course ?</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want to delete the course?
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-course" class="btn btn-danger">Save
+          changes</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="create-course-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new banner</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mt-4">
+          <h3>ADD BANNER</h3>
+          <form method="POST" action="/banner/store">
+            <div class="form-group">
+              <label for="content">Content</label>
+              <input
+                class="form-control"
+                id="content"
+                name="content"
+                placeholder="Content"
+              />
+            </div>
+            <div class="form-group">
+              <label for="srcBanner">Link Imgae Banner</label>
+              <input
+                class="form-control"
+                id="srcBanner"
+                name="srcBanner"
+                placeholder="Description"
+              />
+            </div>
+            <div class="form-group">
+              <label for="img">Select image:</label>
+              <input type="file" id="img" name="img" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-course" class="btn btn-danger">Save
+          changes</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form name="delete-course-form" method="POST">
+</form>

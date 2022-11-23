@@ -2,17 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const User = new Schema({
-  username: {
+const Campus = new Schema({
+  id: {
     type: String,
     requited: true,
     maxLength: 255,
   },
-  password: {
+  avatar: {
     type: String,
     requited: true,
-    maxLength: 255,
-  }
+  },
+  name: {
+    type: String,
+    requited: true,
+  },
 });
 
-module.exports = mongoose.model("User", User,'users');
+module.exports = mongoose.model("Campus", Campus,'campus');
