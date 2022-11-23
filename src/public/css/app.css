@@ -56,3 +56,7 @@
     outline: 0px !important; }
   .section-login .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
     background-color: #c0392b !important; }
+
+.banner-item {
+  width: 200px;
+  height: 100px; }

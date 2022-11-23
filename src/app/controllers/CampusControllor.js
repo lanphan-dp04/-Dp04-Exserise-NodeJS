@@ -1,9 +1,9 @@
-const JoinUs = require("../models/JoinUs");
+const Campus = require("../models/Campus");
 const jwt = require("jsonwebtoken");
 
-class JoinUsControllor {
+class CampusControllor {
   get(req, res, next) {
-    JoinUs.find({})
+    Campus.find({})
     .then(data => {
       res.json(data)
     })
@@ -11,4 +11,4 @@ class JoinUsControllor {
   }
   }
 
-module.exports = new JoinUsControllor();
+module.exports = new CampusControllor();

@@ -1,9 +1,9 @@
-const Typical = require("../models/Typical");
+const Concern = require("../models/Concern");
 const jwt = require("jsonwebtoken");
 
-class TypicalController {
+class ConcernController {
   get(req, res, next) {
-    Typical.find({})
+    Concern.find({})
     .then(data => {
       res.json(data)
     })
@@ -11,4 +11,4 @@ class TypicalController {
   }
   }
 
-module.exports = new TypicalController();
+module.exports = new ConcernController();

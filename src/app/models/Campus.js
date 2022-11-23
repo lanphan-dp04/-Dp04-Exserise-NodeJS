@@ -2,20 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-const United = new Schema({
+const Campus = new Schema({
   id: {
     type: String,
     requited: true,
     maxLength: 255,
   },
-  title: {
+  avatar: {
     type: String,
     requited: true,
   },
-  infor: {
+  name: {
     type: String,
     requited: true,
-  }
+  },
 });
 
-module.exports = mongoose.model("United", United,'united');
+module.exports = mongoose.model("Campus", Campus,'campus');

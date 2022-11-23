@@ -6,11 +6,14 @@ const methodOverride = require('method-override')
 const bodyParser = require("body-parser");
 const db = require("./config/db");
 let cors = require("cors");
+const google = require('googleapis');
+// const {uploadFile} = require('./app/models/Upload');
 const app = express()
 const port = 5000
 
 const route = require('./routes/index.route')
 app.use(express.static(path.join(__dirname, "public")));
+// uploadFile();
 
 //connect db
 db.connect();
