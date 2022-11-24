@@ -12,10 +12,18 @@ const Saying = new Schema({
     type: String,
     requited: true,
   },
-  infor: {
+  name: {
     type: String,
     requited: true,
-  }
+  },
+  desc: {
+    type: String,
+    requited: true,
+  },
+  imageAvatar: {
+    type: String,
+    requited: true,
+  },
 });
 
 module.exports = mongoose.model("Saying", Saying,'saying');
