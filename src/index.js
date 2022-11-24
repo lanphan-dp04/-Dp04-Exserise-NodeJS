@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const db = require("./config/db");
 let cors = require("cors");
 const google = require('googleapis');
+const upload = require('./multer/multer')
+const cloudinary = require('./util/cloudinary')
 // const {uploadFile} = require('./app/models/Upload');
 const app = express()
 const port = 5000
@@ -44,6 +46,31 @@ app.use(morgan("combined"));
 app.get("/", (req, res) => {
   res.render("home");
 });
+
+app.use('/upload-images', upload.array('image'), async(req,res) => {
+
+  const uploader = async (path) => await cloudinary.uploads(path, 'Images')
+  
+  if(req.method === 'POST') {
+    const urls = []
+    const files = req.files
+    for( const file of files) {
+      const {path} = file
+      const newPath = await uploader(path)
+      urls.push(newPath)
+      fs.unlinkSync(path)
+    }
+    res.status(200).json({
+      message: 'images uploaded successfully',
+      data: urls,
+    })
+  }
+    else {
+      res.status(405).json({
+        err: `${req.method} method not allowed`
+      })
+    }
+})
 
 // route innit
 route(app);
