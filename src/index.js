@@ -17,6 +17,7 @@ const port = 5000
 const route = require("./routes/index.route");
 const { log } = require("console");
 app.use(express.static(path.join(__dirname, "public")));
+app.use('/asset', express.static('./asset'))
 // uploadFile();
 
 //connect db
@@ -45,35 +46,12 @@ app.set("views", path.join(__dirname, "resources", "views"));
 //HTTP logger
 app.use(morgan("combined"));
 
-// app.get("/", (req, res) => {
-//   res.render("home");
-// });
-app.use('/upload-images', upload.array('image'), async(req,res) => {
+app.get("/", (req, res) => {
+  res.render("home");
+});
 
-  const uploader = async (path) => await cloudinary.uploads(path, 'Images')
-  if(req.method === 'POST') {
-    const urls = []
-    const files = req.files
-    for(const file of files) {
-      const {path} = file
-      const newPath = await uploader(path)
-      console.log(newPath)
-      urls.push(newPath)
-      fs.unlinkSync(path)
-    }
-    res.status(200).json({
-      message: 'images uploaded successfully',
-      data: urls,
-    })
-  }
-    else {
-      res.status(405).json({
-        err: `${req.method} method not allowed`
-      })
-    }
-})
-// route innit
-// route(app);
+
+route(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -1,9 +1,9 @@
-<form method="POST" action="/saying/{{data._id}}?_method=PUT">
+<form method="POST" action="/saying/{{data._id}}?_method=PUT" enctype="multipart/form-data">
   <div class="form-group">
     <label for="name">Name User</label>
     <input type="text" class="form-control" id="name" name="name" required />
   </div>
-  <div class="form-group">
+  {{! <div class="form-group">
     <label for="imageAvatar">Avatar User</label>
     <input
       type="text"
@@ -12,6 +12,19 @@
       name="imageAvatar"
       required
     />
+  </div> }}
+  <div class="form-group">
+    <input
+      type="file"
+      class="form-control"
+      id="imageAvatar"
+      name="imageAvatar"
+      required
+    />
+    <label for="imageAvatar" class="imageAvatar">Select file<i
+        class="fa-solid fa-cloud-arrow-up"
+      ></i></label>
+    <div class="img">{{data.imageAvatar}}</div>
   </div>
   <div class="form-group">
     <label for="desc">DESC User</label>
