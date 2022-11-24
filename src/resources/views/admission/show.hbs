@@ -1,0 +1,207 @@
+<form
+  class="container mt-4"
+  name="container-form"
+  method="POST"
+  action="/khoa-hoc/handle-form-action"
+>
+  <div>
+    <h3 class="text-center pb-4">Khóa học của tôi</h3>
+    {{!-- {{#if deletedCount}} --}}
+    <a href="/me/trash/courses">Thùng rác ({{deletedCount}})</a>
+    {{!-- {{/if}} --}}
+    <div class="mt-4 mb-4 d-flex align-items-center">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="checkbox-all" />
+        <label class="form-check-label" for="checkbox-all">Chọn tất cả</label>
+      </div>
+      <select
+        class="form-control form-control-sm checkbox-select-all-options"
+        name="action"
+        required
+      >
+        <option value="">-- Hành động --</option>
+        <option>Xóa</option>
+      </select>
+      <button class="btn btn-primary btn-sm check-all-submit-btn disabled">Thực
+        hiện</button>
+    </div>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Chọn</th>
+        <th scope="col">STT</th>
+        <th scope="col">Tên khóa học</th>
+        <th scope="col">Nguoi tao tạo</th>
+        <th scope="col">Thời gian tạo</th>
+        <th scope="col" colspan="2">
+          <a
+            href=""
+            data-toggle="modal"
+            data-id="{{this._doc._id}}"
+            data-target="#create-saying-modal"
+          >New Data</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+        <tr>
+          <td>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                name="sayingId[]"
+                value="{{this._doc._id}}"
+              />
+            </div>
+          </td>
+          <th scope="row">{{sum @index 1}}</th>
+          <td>{{this._doc.title}}</td>
+          <td>{{this._doc.name}}</td>
+          <td>{{this.createdAt}}</td>
+          <td>
+            <a href="/admission/{{this._doc._id}}/edit"
+            {{!-- id="btn-create-course" --}}
+            {{!-- data-toggle="modal"
+            data-id="{{this._doc._id}}" --}}
+            data-target="#edit-saying-modal">Edit</a>
+          </td>
+          <td>
+            <a
+              href="/admission/{{this._doc._id}}/delete"
+              class="btn btn-link"
+              data-toggle="modal"
+              data-id="{{this._doc._id}}"
+              data-target="#delete-saying-modal"
+            >Xóa</a>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="5" class="text-center">
+            Bạn chưa đăng khóa học nào.
+            <a href="/khoa-hoc/create">Tạo mới khóa học</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</form>
+{{!-- create --}}
+<div
+  class="modal fade"
+  id="create-saying-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ADD NEW DATA</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/saying/create">
+          <div class="form-group">
+            <label for="name">Name User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageAvatar">Avatar User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imageAvatar"
+              name="imageAvatar"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="desc">DESC User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="desc"
+              name="desc"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="title">title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              name="title"
+              required
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Data</button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- delete --}}
+<div class="modal fade" id="delete-saying-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          You want delete data ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-saying" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form name="delete-saying-form" method="POST">
+</form>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      let sayingId = 0;
+      const deleteForm = document.forms['delete-saying-form']
+      $('#delete-saying-modal').on('show.bs.modal', function (event) {
+        const button = $(event.relatedTarget) // Button that triggered the modal
+        sayingId = button.data('id') // Extract info from data-* attributes   
+      })
+      const btnDeleteSaying = document.getElementById('btn-delete-saying');
+      btnDeleteSaying.onclick = function() {
+        deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
+        deleteForm.submit();
+      }
+    })
+</script>
