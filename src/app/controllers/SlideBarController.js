@@ -12,7 +12,7 @@ class SlideBarControllor {
   show(req, res, next) {
     SlideBar.find({})
     .then(data => {
-      res.render('banner/show',{banner})
+      res.render('banner/show',data[0].images)
     })
     .catch(next)
   }

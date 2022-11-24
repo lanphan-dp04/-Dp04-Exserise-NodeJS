@@ -1,47 +1,48 @@
-const Concern = require("../models/Concern");
+const MustHave = require("../models/MustHave");
 const jwt = require("jsonwebtoken");
 
-class ConcernController {
+class MustHaveControllor {
   get(req, res, next) {
-    Concern.find({})
+    MustHave.find({})
     .then(data => {
       res.json(data)
     })
     .catch(next)
   }
   show(req, res, next) {
-    Concern.find({})
+    MustHave.find({})
     .then(data => {
-      res.render('concern/show',{data})
+      res.render('havemust/show',{data})
     })
     .catch(next)
   }
   create(req, res, next) {
     const formData = req.body;
-    const data = new Concern(formData);
+    const data = new MustHave(formData);
     data.save()
-      .then(() => res.redirect('/concern/list'))
+      .then(() => res.redirect('/must-have/list'))
       .catch(error => {
       })
   }
   edit(req, res, next) {
-    Concern.findById(req.params.id)
+    MustHave.findById(req.params.id)
     .then(data => {
       data = data.toObject();
-      res.render('concern/edit',{data})
+      res.render(`havemust/edit`,{data})
     })
     .catch(next)
   }
   update(req, res, next) {
-    Concern.updateOne({_id: req.params.id}, req.body)
-    .then(() => res.redirect('/concern/list'))
+    MustHave.updateOne({_id: req.params.id}, req.body)
+    .then(() => res.redirect('/must-have/list'))
     .catch(next)
   }
   delete( req, res, next) {
-    Concern.deleteOne({_id: req.params.id})
+    MustHave.deleteOne({_id: req.params.id})
       .then(() => res.redirect('back'))
       .catch(next)
   }
+
 }
 
-module.exports = new ConcernController();
+module.exports = new MustHaveControllor();
