@@ -1,11 +1,12 @@
 <form method="POST" action="/admission/{{data._id}}?_method=PUT">
-  <div class="form-group">
-    <label for="name">Name User</label>
-    <input type="text" class="form-control" id="name" name="name" required />
+  <div class="form-group" >
+    <label for="name" >Title</label>
+    <input value="{{data.name}}" type="text" class="form-control" id="name" name="name" required />
   </div>
   <div class="form-group">
-    <label for="imageAvatar">Avatar User</label>
+    <label for="imageAvatar">Image</label>
     <input
+      value="{{data.avatar}}"
       type="text"
       class="form-control"
       id="imageAvatar"
@@ -14,15 +15,15 @@
     />
   </div>
   <div class="form-group">
-    <label for="desc">DESC User</label>
-    <input type="text" class="form-control" id="desc" name="desc" required />
+    <label for="desc">Description 1</label>
+    <textarea type="text" class="form-control" id="desc" name="desc" required >{{data.intro_1}}</textarea>
   </div>
   <div class="form-group">
-    <label for="title">title</label>
-    <input type="text" class="form-control" id="title" name="title" required />
+    <label for="title">Description 2</label>
+    <textarea type="text" class="form-control" id="title" name="title" required >{{data.intro_2}}</textarea>
   </div>
   <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Add Data</button>
+    <button type="submit" class="btn btn-primary">Save</button>
     <button
       type="button"
       class="btn btn-secondary"

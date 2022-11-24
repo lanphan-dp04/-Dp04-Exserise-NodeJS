@@ -38,6 +38,7 @@ class AdmissionControllor {
       .then((data) => {
         data = data.toObject();
         res.render("admission/edit", { data });
+        console.log(data);
       })
       .catch(next);
   }

@@ -5,7 +5,7 @@
   action="/khoa-hoc/handle-form-action"
 >
   <div>
-    <h3 class="text-center pb-4">Khóa học của tôi</h3>
+    <h3 class="text-center pb-4">Main Campus</h3>
     {{!-- {{#if deletedCount}} --}}
     <a href="/me/trash/courses">Thùng rác ({{deletedCount}})</a>
     {{!-- {{/if}} --}}
@@ -29,11 +29,10 @@
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
-        <th scope="col">Chọn</th>
+        <th scope="col">Chose</th>
         <th scope="col">STT</th>
-        <th scope="col">Tên khóa học</th>
-        <th scope="col">Nguoi tao tạo</th>
-        <th scope="col">Thời gian tạo</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image Campus</th>
         <th scope="col" colspan="2">
           <a
             href=""
@@ -58,9 +57,8 @@
             </div>
           </td>
           <th scope="row">{{sum @index 1}}</th>
-          <td>{{this._doc.title}}</td>
           <td>{{this._doc.name}}</td>
-          <td>{{this.createdAt}}</td>
+          <td>{{this._doc.avatar}}</td>
           <td>
             <a href="/campus/{{this._doc._id}}/edit"
             {{!-- id="btn-create-course" --}}
@@ -133,26 +131,6 @@
               required
             />
           </div>
-          <div class="form-group">
-            <label for="desc">DESC User</label>
-            <input
-              type="text"
-              class="form-control"
-              id="desc"
-              name="desc"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="title">title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              name="title"
-              required
-            />
-          </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Add Data</button>
             <button
@@ -200,7 +178,7 @@
       })
       const btnDeleteSaying = document.getElementById('btn-delete-saying');
       btnDeleteSaying.onclick = function() {
-        deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
+        deleteForm.action = '/campus/' + sayingId + '?_method=DELETE';
         deleteForm.submit();
       }
     })
