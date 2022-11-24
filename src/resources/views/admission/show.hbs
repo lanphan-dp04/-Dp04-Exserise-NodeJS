@@ -32,13 +32,14 @@
         <th scope="col">Chọn</th>
         <th scope="col">STT</th>
         <th scope="col">Tên khóa học</th>
+        <th scope="col">Nguoi tao tạo</th>
         <th scope="col">Thời gian tạo</th>
         <th scope="col" colspan="2">
           <a
             href=""
             data-toggle="modal"
             data-id="{{this._doc._id}}"
-            data-target="#create-havemust-modal"
+            data-target="#create-saying-modal"
           >New Data</a>
         </th>
       </tr>
@@ -51,28 +52,29 @@
               <input
                 type="checkbox"
                 class="form-check-input"
-                name="havemustId[]"
+                name="sayingId[]"
                 value="{{this._doc._id}}"
               />
             </div>
           </td>
           <th scope="row">{{sum @index 1}}</th>
           <td>{{this._doc.title}}</td>
+          <td>{{this._doc.name}}</td>
           <td>{{this.createdAt}}</td>
           <td>
-            <a href="/must-have/{{this._doc._id}}/edit"
+            <a href="/admission/{{this._doc._id}}/edit"
             {{!-- id="btn-create-course" --}}
             {{!-- data-toggle="modal"
             data-id="{{this._doc._id}}" --}}
-            data-target="#edit-havemust-modal">Edit</a>
+            data-target="#edit-saying-modal">Edit</a>
           </td>
           <td>
             <a
-              href="/must-have/{{this._doc._id}}/delete"
+              href="/admission/{{this._doc._id}}/delete"
               class="btn btn-link"
               data-toggle="modal"
               data-id="{{this._doc._id}}"
-              data-target="#delete-havemust-modal"
+              data-target="#delete-saying-modal"
             >Xóa</a>
           </td>
         </tr>
@@ -90,7 +92,7 @@
 {{!-- create --}}
 <div
   class="modal fade"
-  id="create-havemust-modal"
+  id="create-saying-modal"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -110,34 +112,44 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/must-have/create">
+        <form method="POST" action="/saying/create">
           <div class="form-group">
-            <label for="title">Name Data</label>
+            <label for="name">Name User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageAvatar">Avatar User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="imageAvatar"
+              name="imageAvatar"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="desc">DESC User</label>
+            <input
+              type="text"
+              class="form-control"
+              id="desc"
+              name="desc"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="title">title</label>
             <input
               type="text"
               class="form-control"
               id="title"
               name="title"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="course">Name course</label>
-            <input
-              type="text"
-              class="form-control"
-              id="course"
-              name="course"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="icon">Name icon</label>
-            <input
-              type="text"
-              class="form-control"
-              id="icon"
-              name="icon"
               required
             />
           </div>
@@ -156,7 +168,7 @@
 </div>
 
 {{!-- delete --}}
-<div class="modal fade" id="delete-havemust-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
+<div class="modal fade" id="delete-saying-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -169,26 +181,26 @@
           You want delete data ?
       </div>
       <div class="modal-footer">
-        <button type="button" id="btn-delete-havemust" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" id="btn-delete-saying" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
-<form name="delete-havemust-form" method="POST">
+<form name="delete-saying-form" method="POST">
 </form>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-      let havemustId = 0;
-      const deleteForm = document.forms['delete-havemust-form']
-      $('#delete-havemust-modal').on('show.bs.modal', function (event) {
+      let sayingId = 0;
+      const deleteForm = document.forms['delete-saying-form']
+      $('#delete-saying-modal').on('show.bs.modal', function (event) {
         const button = $(event.relatedTarget) // Button that triggered the modal
-        havemustId = button.data('id') // Extract info from data-* attributes   
+        sayingId = button.data('id') // Extract info from data-* attributes   
       })
-      const btnDeleteHavemust = document.getElementById('btn-delete-havemust');
-      btnDeleteHavemust.onclick = function() {
-        deleteForm.action = '/must-have/' + havemustId + '?_method=DELETE';
+      const btnDeleteSaying = document.getElementById('btn-delete-saying');
+      btnDeleteSaying.onclick = function() {
+        deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
         deleteForm.submit();
       }
     })

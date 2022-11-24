@@ -58,10 +58,13 @@
     background-color: #c0392b !important; }
 
 .navbar {
-  padding: 10px 30px; }
+  padding: 10px 0px; }
 
 .navbar-expand-lg {
   justify-content: space-between; }
+
+.item-user {
+  padding-right: 40px; }
 
 .row {
   margin: 0; }
@@ -69,9 +72,12 @@
     margin-top: 16px; }
 
 .sidebard-wrapper {
+  padding-left: 0;
   min-height: 100vh;
   background-color: #343a40;
-  border: 2px gainsboro solid; }
+  border-left: 2px #1b1b1d solid;
+  border-right: 2px #1b1b1d solid;
+  border-bottom: 2px #1b1b1d solid; }
 
 .card-img-top {
   height: 270px;
@@ -96,23 +102,61 @@
     font-size: 30px;
     padding-right: 10px; }
 
+.navbar-brand {
+  padding: 0; }
+
+.logo-img {
+  width: 220px;
+  height: 42px;
+  margin-left: -22px; }
+
+.nav {
+  padding-left: 5px; }
+
+.nav li:hover {
+  background-color: #0f1015;
+  border-right: 2px solid;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px; }
+  .nav li:hover .nav-link {
+    color: white; }
+  .nav li:hover .icon-nav {
+    color: #fc424a; }
+
 .nav-item-wrapper {
-  display: flex; }
+  display: flex;
+  padding: 5px; }
 
 .icon-nav {
-  font-size: 10px; }
+  font-size: 0.875rem;
+  color: coral; }
 
 .menu-icon {
-  margin-right: 0.5rem;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-right: 0;
   font-size: 0.8125rem;
   line-height: 1;
   background: rgba(108, 114, 147, 0.2);
-  width: 31px;
-  height: 31px;
+  width: 32px;
+  height: 32px;
   border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center; }
+
 .banner-item {
   width: 200px;
   height: 100px; }
+
+@media (min-width: 1225px) {
+  .col-lg-10 {
+    width: 82%; }
+  .col-lg-2 {
+    width: 18%; } }
+
+@media (min-width: 992px) and (max-width: 1225px) {
+  .col-lg-10 {
+    width: 78%; }
+  .col-lg-2 {
+    width: 22%; } }
