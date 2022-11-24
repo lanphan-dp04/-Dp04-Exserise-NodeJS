@@ -12,6 +12,14 @@ const MustHave = new Schema({
     type: String,
     requited: true,
   },
+  icon: {
+    type: String,
+    requited: true,
+  },
+  course: {
+    type: String,
+    requited: true,
+  },
 });
 
 module.exports = mongoose.model("MustHave", MustHave,'musthave');
