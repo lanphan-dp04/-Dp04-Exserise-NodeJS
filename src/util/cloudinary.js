@@ -11,7 +11,8 @@ cloudinary.config({
 
 exports.uploads = (file, folder) => {
   return new Promise( resolve => {
-    cloudinary.uploader(file, (result) => {
+    cloudinary.uploader.upload(file, (result) => {
+      console.log(result)
       resolve( {
         url: result.url,
         id: result.public_id,
