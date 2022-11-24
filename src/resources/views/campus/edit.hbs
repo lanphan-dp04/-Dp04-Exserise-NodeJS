@@ -3,12 +3,12 @@
     Edit Data DevPlus Campus
   </h3>
   <div class="form-warapper">
-    <form method="POST" action="/campus/{{data._id}}?_method=PUT">
+    <form method="POST" action="/campus/{{data._id}}?_method=PUT" enctype="multipart/form-data">
   <div class="form-group">
     <label for="name">Title for Campus</label>
     <input type="text" value="{{data.name}}" class="form-control" id="name" name="name" required />
   </div>
-  <div class="form-group">
+  {{!-- <div class="form-group">
     <label for="imageAvatar">Avatar</label>
     <input
       type="text"
@@ -18,6 +18,11 @@
       name="imageAvatar"
       required
     />
+  </div> --}}
+  <div class="form-group">
+    <input type="file" class="form-control" id="avatar" name="avatar" required/>
+    <label for="avatar" class="avatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
+    <div class="img"></div>
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary">Add Data</button>
