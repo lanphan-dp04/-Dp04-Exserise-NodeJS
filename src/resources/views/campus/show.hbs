@@ -120,7 +120,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/campus/create">
+        <form method="POST" action="/campus/create" enctype="multipart/form-data">
           <div class="form-group">
             <label for="name">Name User</label>
             <input
@@ -131,7 +131,7 @@
               required
             />
           </div>
-          <div class="form-group">
+          {{!-- <div class="form-group">
             <label for="imageAvatar">Avatar User</label>
             <input
               type="text"
@@ -140,6 +140,11 @@
               name="imageAvatar"
               required
             />
+          </div> --}}
+          <div class="form-group">
+            <input type="file" class="form-control" id="avatar" name="avatar" required/>
+            <label for="avatar" class="avatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
+            <div class="img"></div>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Add Data</button>

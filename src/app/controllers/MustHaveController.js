@@ -17,6 +17,7 @@ class MustHaveControllor {
     .catch(next)
   }
   create(req, res, next) {
+    req.body.icon = 'http://localhost:5000/'+req.file.path.split('\\').slice(2).join('/');
     const formData = req.body;
     const data = new MustHave(formData);
     data.save()
@@ -33,6 +34,7 @@ class MustHaveControllor {
     .catch(next)
   }
   update(req, res, next) {
+    req.body.icon = 'http://localhost:5000/'+req.file.path.split('\\').slice(2).join('/');
     MustHave.updateOne({_id: req.params.id}, req.body)
     .then(() => res.redirect('/must-have/list'))
     .catch(next)
