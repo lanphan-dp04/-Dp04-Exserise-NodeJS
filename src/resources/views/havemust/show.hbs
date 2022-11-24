@@ -42,7 +42,7 @@
         <th scope="col">Index</th>
         <th scope="col">Title</th>
         <th scope="col">Image</th>
-        <th scope="col">Created Time</th>
+        <th scope="col">Course</th>
         <th scope="col" colspan="2">Action </th>
       </tr>
     </thead>
@@ -56,8 +56,8 @@
         </td>
         <th scope="row">{{sum @index 1}}</th>
         <td>{{this._doc.title}}</td>
-        <td>{{this._doc.image}}</td>
-        <td>{{this.createdAt}}</td>
+        <td><img src="{{this._doc.icon}}" alt="icon"></td>
+        <td>{{this._doc.course}}</td>
         <td>
           <a href="/must-have/{{this._doc._id}}/edit" {{!-- id="btn-create-course" --}} {{!-- data-toggle="modal"
             data-id="{{this._doc._id}}" --}} data-target="#edit-havemust-modal">
