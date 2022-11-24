@@ -1,0 +1,9 @@
+module.exports = {
+  checkAuth: function(req, res, next) {
+    if (!req.cookies.access_token) {
+      res.redirect('/login');
+    } else {
+      next();
+    }
+  }
+}

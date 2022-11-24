@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const db = require("./config/db");
 let cors = require("cors");
 const google = require('googleapis');
+const cookieParser = require("cookie-parser");
 // const {uploadFile} = require('./app/models/Upload');
 const app = express()
 const port = 5000
@@ -17,6 +18,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //connect db
 db.connect();
+
+app.use(cookieParser());
 
 app.use(cors());
 app.use(
