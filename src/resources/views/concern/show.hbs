@@ -31,9 +31,8 @@
       <tr>
         <th scope="col">Chọn</th>
         <th scope="col">STT</th>
-        <th scope="col">Name học</th>
-        <th scope="col">desc</th>
-        <th scope="col">Thời gian tạo</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
         <th scope="col" colspan="2">
           <a
             href=""
@@ -60,7 +59,6 @@
           <th scope="row">{{sum @index 1}}</th>
           <td>{{this._doc.title}}</td>
           <td>{{this._doc.desc}}</td>
-          <td>{{this.createdAt}}</td>
           <td>
             <a href="/concern/{{this._doc._id}}/edit"
             {{!-- id="btn-create-course" --}}

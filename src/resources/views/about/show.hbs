@@ -6,7 +6,9 @@
 >
 
   <div>
+
     <h3 class="text-center pb-4 havemust-title">About DevPlus</h3>
+
     {{!-- {{#if deletedCount}} --}}
     {{!-- {{/if}} --}}
     <div class="havemust-box">
@@ -43,12 +45,14 @@
   </div>
   <table class=" table-havemust table table-bordered table-striped">
     <thead>
+
       <tr class="column-title">
         <th scope="col" class="col-1">Check</th>
         <th scope="col" class="col-1">Index</th>
         <th scope="col" class="col-5">Title</th>
         <th scope="col" class="col-3">Created Time</th>
         <th scope="col" colspan="2">Action </th>
+
       </tr>
     </thead>
     <tbody>
@@ -66,9 +70,11 @@
           </td>
           <th scope="row">{{sum @index 1}}</th>
           <td>{{this._doc.title}}</td>
+
           <td>{{this.createdAt}}</td>
           <td class="col-1">
-            <a href="/saying/{{this._doc._id}}/edit"
+            <a href="/about/{{this._doc._id}}/edit"
+
             {{!-- id="btn-create-course" --}}
             {{!-- data-toggle="modal"
             data-id="{{this._doc._id}}" --}}
@@ -76,7 +82,7 @@
           </td>
           <td class="col-1">
             <a
-              href="/saying/{{this._doc._id}}/delete"
+              href="/about/{{this._doc._id}}/delete"
               class="btn btn-link"
               data-toggle="modal"
               data-id="{{this._doc._id}}"
@@ -119,7 +125,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" action="/saying/create">
+        <form method="POST" action="/about/create">
           <div class="form-group">
             <label for="name">Name User</label>
             <input
@@ -207,7 +213,7 @@
       })
       const btnDeleteSaying = document.getElementById('btn-delete-saying');
       btnDeleteSaying.onclick = function() {
-        deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
+        deleteForm.action = '/about/' + sayingId + '?_method=DELETE';
         deleteForm.submit();
       }
     })

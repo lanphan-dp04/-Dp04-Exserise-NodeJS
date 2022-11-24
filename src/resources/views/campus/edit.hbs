@@ -1,25 +1,18 @@
 <form method="POST" action="/campus/{{data._id}}?_method=PUT">
   <div class="form-group">
-    <label for="name">Name User</label>
-    <input type="text" class="form-control" id="name" name="name" required />
+    <label for="name">Title for Campus</label>
+    <input type="text" value="{{data.name}}" class="form-control" id="name" name="name" required />
   </div>
   <div class="form-group">
-    <label for="imageAvatar">Avatar User</label>
+    <label for="imageAvatar">Avatar</label>
     <input
       type="text"
+      value="{{data.avatar}}"
       class="form-control"
       id="imageAvatar"
       name="imageAvatar"
       required
     />
-  </div>
-  <div class="form-group">
-    <label for="desc">DESC User</label>
-    <input type="text" class="form-control" id="desc" name="desc" required />
-  </div>
-  <div class="form-group">
-    <label for="title">title</label>
-    <input type="text" class="form-control" id="title" name="title" required />
   </div>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary">Add Data</button>

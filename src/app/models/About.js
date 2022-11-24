@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const About = new Schema({
   id: {
     type: String,
@@ -14,4 +13,4 @@ const About = new Schema({
   },
 });
 
-module.exports = mongoose.model("About", About,'about');
+module.exports = mongoose.model("About", About, "about");
