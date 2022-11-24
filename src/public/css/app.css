@@ -121,6 +121,7 @@ td img {
 
 .item-user {
   padding-right: 40px; }
+
 a.btn {
   display: block;
   text-decoration: none;
@@ -220,3 +221,7 @@ a.btn {
     width: 78%; }
   .col-lg-2 {
     width: 22%; } }
+
+.banner-item {
+  width: 200px;
+  height: 100px; }
