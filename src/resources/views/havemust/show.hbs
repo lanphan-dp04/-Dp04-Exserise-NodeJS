@@ -1,111 +1,93 @@
-<form
-  class="container mt-4"
-  name="container-form"
-  method="POST"
-  action="/khoa-hoc/handle-form-action"
->
+<form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
   <div>
-    <h3 class="text-center pb-4">Khóa học của tôi</h3>
+    <h3 class="text-center pb-4 havemust-title">DevPlus Have Must</h3>
     {{!-- {{#if deletedCount}} --}}
-    <a href="/me/trash/courses">Thùng rác ({{deletedCount}})</a>
     {{!-- {{/if}} --}}
-    <div class="mt-4 mb-4 d-flex align-items-center">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="checkbox-all" />
-        <label class="form-check-label" for="checkbox-all">Chọn tất cả</label>
+    <div class="havemust-box">
+      <div class="mt-4 mb-4 d-flex align-items-center">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="checkbox-all" />
+          <label class="form-check-label" for="checkbox-all">Select All</label>
+        </div>
+        <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
+          <option value="">-- Action --</option>
+          <option>Delete</option>
+        </select>
+        <button class=" btn btn-primary btn-sm check-all-submit-btn disabled">Submit</button>
       </div>
-      <select
-        class="form-control form-control-sm checkbox-select-all-options"
-        name="action"
-        required
-      >
-        <option value="">-- Hành động --</option>
-        <option>Xóa</option>
-      </select>
-      <button class="btn btn-primary btn-sm check-all-submit-btn disabled">Thực
-        hiện</button>
+
+      <div class="box-buttonfunction">
+        <div>
+            <a href="/me/trash/courses" class="button-garbage button-addnewdata">
+             Garbage can
+              <i class="fa-solid fa-trash-arrow-up"></i>
+            {{deletedCount}}</a>
+        </div>
+        
+        <div>
+          <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-havemust-modal"
+            class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
+        </div>
+      </div>
+
+
     </div>
+
+
   </div>
-  <table class="table table-bordered table-striped">
+  <table class="table-havemust table table-bordered table-striped ">
     <thead>
-      <tr>
-        <th scope="col">Chọn</th>
-        <th scope="col">STT</th>
-        <th scope="col">Tên khóa học</th>
-        <th scope="col">Thời gian tạo</th>
-        <th scope="col" colspan="2">
-          <a
-            href=""
-            data-toggle="modal"
-            data-id="{{this._doc._id}}"
-            data-target="#create-havemust-modal"
-          >New Data</a>
-        </th>
+      <tr class="column-title">
+        <th scope="col">Check</th>
+        <th scope="col">Index</th>
+        <th scope="col">Title</th>
+        <th scope="col">Image</th>
+        <th scope="col">Created Time</th>
+        <th scope="col" colspan="2">Action </th>
       </tr>
     </thead>
     <tbody>
       {{#each data}}
-        <tr>
-          <td>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                name="havemustId[]"
-                value="{{this._doc._id}}"
-              />
-            </div>
-          </td>
-          <th scope="row">{{sum @index 1}}</th>
-          <td>{{this._doc.title}}</td>
-          <td>{{this.createdAt}}</td>
-          <td>
-            <a href="/must-have/{{this._doc._id}}/edit"
-            {{!-- id="btn-create-course" --}}
-            {{!-- data-toggle="modal"
-            data-id="{{this._doc._id}}" --}}
-            data-target="#edit-havemust-modal">Edit</a>
-          </td>
-          <td>
-            <a
-              href="/must-have/{{this._doc._id}}/delete"
-              class="btn btn-link"
-              data-toggle="modal"
-              data-id="{{this._doc._id}}"
-              data-target="#delete-havemust-modal"
-            >Xóa</a>
-          </td>
-        </tr>
+      <tr>
+        <td>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="havemustId[]" value="{{this._doc._id}}" />
+          </div>
+        </td>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this._doc.title}}</td>
+        <td>{{this._doc.image}}</td>
+        <td>{{this.createdAt}}</td>
+        <td>
+          <a href="/must-have/{{this._doc._id}}/edit" {{!-- id="btn-create-course" --}} {{!-- data-toggle="modal"
+            data-id="{{this._doc._id}}" --}} data-target="#edit-havemust-modal"><i
+              class="fa-solid-edit fa-solid fa-file-pen"></i> </a>
+        </td>
+        <td>
+          <a href="/must-have/{{this._doc._id}}/delete" {{!-- class="btn btn-link" --}} data-toggle="modal"
+            data-id="{{this._doc._id}}" data-target="#delete-havemust-modal"><i
+              class="fa-sharp fa-solid-delete fa-solid fa-trash"></i></a>
+        </td>
+      </tr>
       {{else}}
-        <tr>
-          <td colspan="5" class="text-center">
-            Bạn chưa đăng khóa học nào.
-            <a href="/khoa-hoc/create">Tạo mới khóa học</a>
-          </td>
-        </tr>
+      <tr>
+        <td colspan="5" class="text-center">
+          Bạn chưa đăng khóa học nào.
+          <a href="/khoa-hoc/create">Tạo mới khóa học</a>
+        </td>
+      </tr>
       {{/each}}
     </tbody>
   </table>
 </form>
 {{!-- create --}}
-<div
-  class="modal fade"
-  id="create-havemust-modal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="create-havemust-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">ADD NEW DATA</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -113,13 +95,7 @@
         <form method="POST" action="/must-have/create">
           <div class="form-group">
             <label for="title">Name Data</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              name="title"
-              required
-            />
+            <input type="text" class="form-control" id="title" name="title" required />
           </div>
           <div class="form-group">
             <label for="course">Name course</label>
@@ -143,11 +119,7 @@
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Add Data</button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </form>
       </div>
@@ -156,7 +128,8 @@
 </div>
 
 {{!-- delete --}}
-<div class="modal fade" id="delete-havemust-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
+<div class="modal fade" id="delete-havemust-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -166,7 +139,7 @@
         </button>
       </div>
       <div class="modal-body">
-          You want delete data ?
+        You want delete data ?
       </div>
       <div class="modal-footer">
         <button type="button" id="btn-delete-havemust" class="btn btn-danger">Delete</button>
@@ -180,16 +153,16 @@
 </form>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-      let havemustId = 0;
-      const deleteForm = document.forms['delete-havemust-form']
-      $('#delete-havemust-modal').on('show.bs.modal', function (event) {
-        const button = $(event.relatedTarget) // Button that triggered the modal
-        havemustId = button.data('id') // Extract info from data-* attributes   
-      })
-      const btnDeleteHavemust = document.getElementById('btn-delete-havemust');
-      btnDeleteHavemust.onclick = function() {
-        deleteForm.action = '/must-have/' + havemustId + '?_method=DELETE';
-        deleteForm.submit();
-      }
+    let havemustId = 0;
+    const deleteForm = document.forms['delete-havemust-form']
+    $('#delete-havemust-modal').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget) // Button that triggered the modal
+      havemustId = button.data('id') // Extract info from data-* attributes   
     })
+    const btnDeleteHavemust = document.getElementById('btn-delete-havemust');
+    btnDeleteHavemust.onclick = function () {
+      deleteForm.action = '/must-have/' + havemustId + '?_method=DELETE';
+      deleteForm.submit();
+    }
+  })
 </script>
