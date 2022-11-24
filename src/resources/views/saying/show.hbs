@@ -1,4 +1,4 @@
-<form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
+  <form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
   <h3 class="text-center pb-4 havemust-title">DevPlus What alumni saying</h3>
 
   <div class="havemust-box">
@@ -58,13 +58,15 @@
         <td><img src="{{this._doc.imageAvatar}}" alt="devplus"></td>
         <td>{{this.createdAt}}</td>
         <td >
-          <a href="/saying/{{this._doc._id}}/edit" {{!-- id="btn-create-course" --}} {{!-- data-toggle="modal"
-            data-id="{{this._doc._id}}" --}} data-target="#edit-saying-modal"><i class="fa-solid-edit fa-solid fa-file-pen"></i> </a>
+          <a href="/saying/{{this._doc._id}}/edit" data-target="#edit-saying-modal">
+            <i class="fa-solid-edit fa-solid fa-file-pen"></i>
+          </a>
         </td>
         <td>
           <a href="/saying/{{this._doc._id}}/delete"  data-toggle="modal"
-            data-id="{{this._doc._id}}" data-target="#delete-saying-modal"><i
-              class="fa-sharp fa-solid-delete fa-solid fa-trash"></i></a>
+            data-id="{{this._doc._id}}" data-target="#delete-saying-modal">
+            <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
+          </a>
         </td>
       </tr>
       {{else}}
