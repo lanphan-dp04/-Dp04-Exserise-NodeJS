@@ -1,7 +1,16 @@
 @import url('../node_modules/font-awesome/css/font-awesome.min.css');
 @import './login';
-<<<<<<< HEAD
+@import './havemust';
 
+
+//havemust css
+.column-title{
+  background: #858fb8;
+}
+.table-havemust {
+  text-align: center;
+}
+//
 .navbar {
     padding: 10px 30px;
 }
@@ -10,7 +19,11 @@
     justify-content: space-between;
 }
 
-
+a.btn {
+  display: block;
+  text-decoration: none;
+  list-style-type: none;
+}
 .row {
   margin: 0;
   .card-course-item {
@@ -75,6 +88,4 @@
     align-items: center;
     justify-content: center;
 }
-=======
 @import './banner-item';
->>>>>>> ee548ace9ee35692e34ab45ea234728627bd109f
