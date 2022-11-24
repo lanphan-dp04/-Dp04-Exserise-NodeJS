@@ -11,6 +11,7 @@
 
 .table-havemust {
     text-align: center;
+    vertical-align: middle;
 }
 
 .form-check {
@@ -22,6 +23,9 @@ a {
     color: black;
 }
 
+td img {
+    max-width: 100%;
+}
 .fa-solid-edit {
     color:rgb(86, 142, 188)
 }
