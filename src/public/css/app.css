@@ -107,6 +107,22 @@ td img {
   display: flex;
   justify-content: space-between; }
 
+.container-form {
+  margin: 100px; }
+
+.editdataform-title {
+  text-align: center;
+  margin: 20px 0;
+  color: #a4a8de;
+  text-shadow: 1px 1px 2px #22aca8, 0 0 1em #45bf65; }
+
+.form-warapper {
+  margin: 0 50px; }
+
+.form-group label {
+  font-weight: 500;
+  margin-top: 10px; }
+
 .column-title {
   background: #858fb8; }
 

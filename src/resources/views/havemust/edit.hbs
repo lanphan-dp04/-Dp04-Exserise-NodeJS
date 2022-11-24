@@ -1,4 +1,9 @@
-<form method="POST" action="/must-have/{{data._id}}?_method=PUT">
+<div class="container-form">
+  <h3 class="editdataform-title">
+    Edit Data About Devplus
+  </h3>
+  <div class="form-warapper">
+    <form method="POST" action="/must-have/{{data._id}}?_method=PUT">
   <div class="form-group">
     <label for="title">Name Data</label>
     <input type="text" value="{{data.title}}" class="form-control" id="title" name="title" required />
@@ -15,3 +20,6 @@
     <button type="submit" class="btn btn-primary">Edit Data</button>
   </div>
 </form>
+  </div>
+</div>
+

@@ -1,4 +1,9 @@
-<form method="POST" action="/campus/{{data._id}}?_method=PUT">
+<div class="container-form">
+  <h3 class="editdataform-title">
+    Edit Data DevPlus Campus
+  </h3>
+  <div class="form-warapper">
+    <form method="POST" action="/campus/{{data._id}}?_method=PUT">
   <div class="form-group">
     <label for="name">Title for Campus</label>
     <input type="text" value="{{data.name}}" class="form-control" id="name" name="name" required />
@@ -23,3 +28,6 @@
     >Close</button>
   </div>
 </form>
+  </div>
+</div>
+

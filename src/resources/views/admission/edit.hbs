@@ -1,4 +1,9 @@
-<form method="POST" action="/admission/{{data._id}}?_method=PUT">
+<div class="container-form">
+  <h3 class="editdataform-title">
+    Edit Data Admission
+  </h3>
+  <div class="form-warapper">
+    <form method="POST" action="/admission/{{data._id}}?_method=PUT">
   <div class="form-group" >
     <label for="name" >Title</label>
     <input value="{{data.name}}" type="text" class="form-control" id="name" name="name" required />
@@ -31,3 +36,7 @@
     >Close</button>
   </div>
 </form>
+  </div>
+</div>
+
+
