@@ -5,7 +5,14 @@
 @import './logout.scss';
 
 
-
+.img-showImg{
+  border: 1px solid black;
+  height: 150px;
+  width:150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 50px;
+}
 //havemust css
 .column-title{
   background: #858fb8;

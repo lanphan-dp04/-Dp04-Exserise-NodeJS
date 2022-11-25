@@ -1,49 +1,68 @@
+{{>header}}
+<div class="row">
+  {{>nav}}
+  <div class="col-lg-10">
 
-<div class="container-form">
-  <h3 class="editdataform-title">
-    Edit Data Admission
-  </h3>
-  <div class="form-warapper">
-<form method="POST" action="/saying/{{data._id}}?_method=PUT" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="name">Name User</label>
-    <input type="text" class="form-control" id="name" name="name" required />
-  </div>
-  
-  {{!-- <div class="form-group">
-    <label for="imageAvatar">Avatar User</label>
-    <input
-      type="text"
-      class="form-control"
-      id="imageAvatar"
-      name="imageAvatar"
-      required
-    />
-  </div> --}}
-  <div class="form-group">
-    <label for="imageAvatar" class="imageAvatar">Select file<i class="fa-solid fa-cloud-arrow-down"></i></label>
-    <input type="file" class="form-control" id="imageAvatar" name="imageAvatar" required/>
-    <div class="img"></div>
-  </div>
-  <div class="form-group">
-    <label for="desc">DESC User</label>
-    <input type="text" class="form-control" id="desc" name="desc" required />
-  </div>
-  <div class="form-group">
-    <label for="title">title</label>
-    <input type="text" class="form-control" id="title" name="title" required />
-  </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Add Data</button>
-    <button
-      type="button"
-      class="btn btn-secondary"
-      data-dismiss="modal"
-    >Close</button>
-  </div>
-</form>
+    <div class="container-form">
+      <h3 class="editdataform-title">
+        Edit Data Admission
+      </h3>
+      <div class="form-warapper">
+    <form method="POST" action="/saying/{{data._id}}?_method=PUT" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name">Name User</label>
+        <input type="text" class="form-control" id="name" name="name" required />
+      </div>
+      
+      {{!-- <div class="form-group">
+        <label for="imageAvatar">Avatar User</label>
+        <input
+          type="text"
+          class="form-control"
+          id="imageAvatar"
+          name="imageAvatar"
+          required
+        />
+      </div> --}}
+      <div class="form-group">
+        <input type="file" class="form-control" id="imageAvatar" name="imageAvatar" required/>
+        <label for="imageAvatar" class="imageAvatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
+        <div class="img-showImg"></div>
+      </div>
+      <div class="form-group">
+        <label for="desc">DESC User</label>
+        <input type="text" class="form-control" id="desc" name="desc" required />
+      </div>
+      <div class="form-group">
+        <label for="title">title</label>
+        <input type="text" class="form-control" id="title" name="title" required />
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Add Data</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Close</button>
+      </div>
+    </form>
 
+      </div>
+    </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let input=document.querySelector('input')
+    input.addEventListener('change',function(){
+    const reader=new FileReader()
+    reader.addEventListener('load',function(){
+    document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`
+    })
+    reader.readAsDataURL(this.files[0])
+})
+    })
+</script>
+
 
 
