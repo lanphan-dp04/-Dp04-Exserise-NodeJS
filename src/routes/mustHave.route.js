@@ -13,5 +13,6 @@ router.get("/:id/edit", mustHaveControllor.edit);
 router.put("/:id", upload.single("icon"), mustHaveControllor.update);
 router.patch("/:id/restore", mustHaveControllor.restore);
 router.delete("/:id", mustHaveControllor.delete);
+router.delete("/:id/force", mustHaveControllor.forceDelete);
 
 module.exports = router;

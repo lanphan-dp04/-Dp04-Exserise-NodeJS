@@ -13,5 +13,6 @@ router.get("/:id/edit", sayingControllor.edit);
 router.put("/:id", upload.single("imageAvatar"), sayingControllor.update);
 router.patch("/:id/restore", sayingControllor.restore);
 router.delete("/:id", sayingControllor.delete);
+router.delete("/:id/force", sayingControllor.forceDelete);
 
 module.exports = router;

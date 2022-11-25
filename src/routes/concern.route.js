@@ -13,5 +13,6 @@ router.get("/:id/edit", concernControllor.edit);
 router.put("/:id", concernControllor.update);
 router.patch("/:id/restore", concernControllor.restore);
 router.delete("/:id", concernControllor.delete);
+router.delete("/:id/force", concernControllor.forceDelete);
 
 module.exports = router;

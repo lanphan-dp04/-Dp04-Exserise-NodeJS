@@ -13,5 +13,5 @@ router.get("/:id/edit", slideBarControllor.edit);
 router.put("/:id", upload.single("src"), slideBarControllor.update);
 router.patch("/:id/restore", slideBarControllor.restore);
 router.delete("/:id", slideBarControllor.delete);
-
+router.delete("/:id/force", slideBarControllor.forceDelete);
 module.exports = router;
