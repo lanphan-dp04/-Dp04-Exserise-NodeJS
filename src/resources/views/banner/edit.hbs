@@ -1,34 +1,42 @@
-<div class="container-form">
-  <h3 class="editdataform-title">
-    Edit Data DevPlus slideBar
-  </h3>
-  <div class="form-warapper">
-    <form method="POST" action="/slideBar/{{data._id}}?_method=PUT" enctype="multipart/form-data">
-  {{!-- <div class="form-group">
-    <label for="imageAvatar">Avatar</label>
-    <input
-      type="text"
-      value="{{this._doc.avatar}}"
-      class="form-control"
-      id="imageAvatar"
-      name="imageAvatar"
-      required
-    />
-  </div> --}}
-  <div class="form-group">
-    <input type="file" class="form-control" id="src" name="src" required/>
-    <label for="src" class="src">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
-    <div class="img"></div>
+{{>header}}
+<div class="row">
+  {{>nav}}
+  <div class="col-lg-10"> 
+  <div class="container-form">
+    <h3 class="editdataform-title">
+      Edit Data DevPlus slideBar
+    </h3>
+    <div class="form-warapper">
+      <form method="POST" action="/slideBar/{{data._id}}?_method=PUT" enctype="multipart/form-data">
+    <div class="form-group">
+      <input type="file" class="form-control" id="src" name="src" required />
+      <label for="src" class="src">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
+      <div class="img-showImg" style="background-image: url({{data.src}});"></div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Add Data</button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        data-dismiss="modal"
+      >Close</button>
+    </div>
+  </form>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">Add Data</button>
-    <button
-      type="button"
-      class="btn btn-secondary"
-      data-dismiss="modal"
-    >Close</button>
-  </div>
-</form>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let input=document.querySelector('input')
+    input.addEventListener('change',function(){
+    const reader=new FileReader()
+    reader.addEventListener('load',function(){
+    document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`
+    })
+    reader.readAsDataURL(this.files[0])
+})
+    })
+</script>
 

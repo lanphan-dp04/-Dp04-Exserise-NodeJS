@@ -6,6 +6,7 @@ const sayingRouter = require('./saying.route');
 const campusRouter = require('../routes/campus.route');
 const concernRouter = require('./concern.route');
 const mustHaveRoute = require('./mustHave.route');
+
 function route(app) {
   app.use('/login', loginRouter);
   app.use('/slideBar', slideBarRouter);
