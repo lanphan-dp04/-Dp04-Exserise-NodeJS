@@ -1,17 +1,13 @@
 <form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
   <div>
-    <h3 class="text-center pb-4 havemust-title">DevPlus Have Must</h3>
+    <h3 class="text-center pb-4 havemust-title">DevPlus Have Must Trash</h3>
     <div class="havemust-box">
       <div class="box-buttonfunction">
         <div>
-            <a href="/must-have/trash" class="button-garbage button-addnewdata">
-             Garbage can
-              <i class="fa-solid fa-trash-arrow-up"></i>
+            <a href="/must-have/list" class="button-garbage button-addnewdata">
+            Back List
+            <i class="fa-solid fa-rotate-left"></i></a>
             {{deletedCount}}</a>
-        </div>
-        <div>
-          <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-havemust-modal"
-            class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
         </div>
       </div>
     </div>
@@ -34,15 +30,14 @@
         <td><img src="{{this._doc.icon}}" alt="icon"></td>
         <td>{{this._doc.course}}</td>
         <td>
-          <a href="/must-have/{{this._doc._id}}/edit" {{!-- id="btn-create-course" --}} {{!-- data-toggle="modal"
-            data-id="{{this._doc._id}}" --}} data-target="#edit-havemust-modal">
-            <i class="fa-solid-edit fa-solid fa-file-pen"></i> </a>
+          <a href="" data-target="#edit-havemust-modal"class="btn-restore" data-id="{{this._doc._id}}">
+            <i class="fa-solid fa-trash-can-arrow-up"></i>
+          </a>
         </td>
         <td>
           <a href="/must-have/{{this._doc._id}}/delete" {{!-- class="btn btn-link" --}} data-toggle="modal"
             data-id="{{this._doc._id}}" data-target="#delete-havemust-modal">
-            <i
-              class="fa-sharp fa-solid-delete fa-solid fa-trash"></i></a>
+            <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i></a>
         </td>
       </tr>
       {{else}}
@@ -142,5 +137,15 @@
       deleteForm.action = '/must-have/' + havemustId + '?_method=DELETE';
       deleteForm.submit();
     }
+    // restore
+    var restoreBtn = $(".btn-restore");
+    // Restore btn clicked
+    restoreBtn.click(function (e) {
+      e.preventDefault();
+
+      var courseId = $(this).data('id');
+      deleteForm.action = '/must-have/' + courseId + '/restore?_method=PATCH';
+      deleteForm.submit();
+    });
   })
 </script>

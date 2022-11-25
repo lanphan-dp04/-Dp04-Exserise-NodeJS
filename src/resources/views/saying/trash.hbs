@@ -3,9 +3,9 @@
   <div class="havemust-box">
     <div class="box-buttonfunction">
       <div>
-        <a href="/saying/trash" class="button-garbage button-addnewdata">
-          Garbage can
-          <i class="fa-solid fa-trash-arrow-up"></i>
+        <a href="/saying/list" class="button-garbage button-addnewdata">
+          Back List
+            <i class="fa-solid fa-rotate-left"></i></a>
           {{deletedCount}}</a>
       </div>
     </div>
@@ -29,8 +29,8 @@
         <td>{{this._doc.title}}</td>
         <td><img src="{{this._doc.imageAvatar}}" alt="devplus"></td>
         <td >
-          <a href="/saying/{{this._doc._id}}/edit" data-target="#edit-saying-modal">
-            <i class="fa-solid-edit fa-solid fa-file-pen"></i>
+          <a href=""  data-target="#edit-saying-modal"
+            class="btn-restore" data-id="{{this._doc._id}}"><i class="fa-solid fa-trash-can-arrow-up"></i>
           </a>
         </td>
         <td>
@@ -129,5 +129,15 @@
       deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
       deleteForm.submit();
     }
+    // restore
+    var restoreBtn = $(".btn-restore");
+    // Restore btn clicked
+    restoreBtn.click(function (e) {
+      e.preventDefault();
+
+      var courseId = $(this).data('id');
+      deleteForm.action = '/saying/' + courseId + '/restore?_method=PATCH';
+      deleteForm.submit();
+    });
   })
 </script>
