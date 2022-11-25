@@ -5,6 +5,7 @@ class UserControllor {
   get(req, res, next) {
     res.render("login/login");
   }
+  
   post(req, res, next) {
     const username = req.body.username;
     const password = req.body.password;

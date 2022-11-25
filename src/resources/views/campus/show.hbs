@@ -1,178 +1,185 @@
-<form
-  class="container mt-4"
-  name="container-form"
-  method="POST"
-  action="/khoa-hoc/handle-form-action"
->
+{{>header}}
+<div class="row">
+  {{>nav}}
+  <div class="col-lg-10">
+    <form
+      class="container mt-4"
+      name="container-form"
+      method="POST"
+      action="/khoa-hoc/handle-form-action"
+    >
 
-    <h3 class="text-center pb-4 havemust-title">DevPlus Must Campus</h3>
+        <h3 class="text-center pb-4 havemust-title">DevPlus Must Campus</h3>
 
-  <div class="havemust-box">
+      <div class="havemust-box">
 
-    <div class="mt-4 mb-4 d-flex align-items-center">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="checkbox-all" />
-        <label class="form-check-label" for="checkbox-all">Select All</label>
-      </div>
-      <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
-        <option value="">-- Action --</option>
-        <option>Delete</option>
-      </select>
-      <button class=" btn btn-primary btn-sm check-all-submit-btn disabled">Submit</button>
-    </div>
-
-    <div class="box-buttonfunction">
-      <div>
-        <a href="/campus/trash" class="button-garbage button-addnewdata">
-          Garbage can
-          <i class="fa-solid fa-trash-arrow-up"></i>
-          {{deletedCount}}</a>
-      </div>
-
-      <div>
-        <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-saying-modal"
-          class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
-      </div>
-    </div>
-
-
-  </div>
-  <table class="table-havemust table table-bordered table-striped">
-    <thead>
-m
-
-      <th scope="col" class="col-1">Check</th>
-        <th scope="col" class="col-1">Index</th>
-        <th scope="col" class="col-5">Title</th>
-        <th scope="col" class="col-4">Image</th>
-
-        <th scope="col"  colspan="2">Action </th>
-
-    </thead>
-    <tbody>
-      {{#each data}}
-        <tr>
-          <th scope="row">{{sum @index 1}}</th>
-          <td>{{this._doc.name}}</td>
-
-          <td><img src="{{this._doc.avatar}}" alt="devplus"></td>
-
-          <td>
-            <a href="/campus/{{this._doc._id}}/edit"
-            {{!-- id="btn-create-course" --}}
-            {{!-- data-toggle="modal"
-            data-id="{{this._doc._id}}" --}}
-            data-target="#edit-saying-modal">
-              <i class="fa-solid-edit fa-solid fa-file-pen"></i>
-            </a>
-          </td>
-          <td>
-            <a
-              href="/campus/{{this._doc._id}}/delete"
-              data-toggle="modal"
-              data-id="{{this._doc._id}}"
-              data-target="#delete-saying-modal"
-            >
-              <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-      {{else}}
-        <tr>
-          <td colspan="5" class="text-center">
-            Bạn chưa có thông tin. Hãy đi tạo mới thông tin
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</form>
-{{!-- create --}}
-<div
-  class="modal fade"
-  id="create-saying-modal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ADD NEW DATA</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="/campus/create" enctype="multipart/form-data">
-          <div class="form-group">
-            <label for="name">Name User</label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              name="name"
-              required
-            />
+        <div class="mt-4 mb-4 d-flex align-items-center">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="checkbox-all" />
+            <label class="form-check-label" for="checkbox-all">Select All</label>
           </div>
-          {{!-- <div class="form-group">
-            <label for="imageAvatar">Avatar User</label>
-            <input
-              type="text"
-              class="form-control"
-              id="imageAvatar"
-              name="imageAvatar"
-              required
-            />
-          </div> --}}
-          <div class="form-group">
-            <input type="file" class="form-control" id="avatar" name="avatar" required/>
-            <label for="avatar" class="avatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
-            <div class="img"></div>
+          <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
+            <option value="">-- Action --</option>
+            <option>Delete</option>
+          </select>
+          <button class=" btn btn-primary btn-sm check-all-submit-btn disabled">Submit</button>
+        </div>
+
+        <div class="box-buttonfunction">
+          <div>
+            <a href="/campus/trash" class="button-garbage button-addnewdata">
+              Garbage can
+              <i class="fa-solid fa-trash-arrow-up"></i>
+              {{deletedCount}}</a>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Add Data</button>
+
+          <div>
+            <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-saying-modal"
+              class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
+          </div>
+        </div>
+
+
+      </div>
+      <table class="table-havemust table table-bordered table-striped">
+        <thead>
+    m
+
+          <th scope="col" class="col-1">Check</th>
+            <th scope="col" class="col-1">Index</th>
+            <th scope="col" class="col-5">Title</th>
+            <th scope="col" class="col-4">Image</th>
+
+            <th scope="col"  colspan="2">Action </th>
+
+        </thead>
+        <tbody>
+          {{#each data}}
+            <tr>
+              <th scope="row">{{sum @index 1}}</th>
+              <td>{{this._doc.name}}</td>
+
+              <td><img src="{{this._doc.avatar}}" alt="devplus"></td>
+
+              <td>
+                <a href="/campus/{{this._doc._id}}/edit"
+                {{!-- id="btn-create-course" --}}
+                {{!-- data-toggle="modal"
+                data-id="{{this._doc._id}}" --}}
+                data-target="#edit-saying-modal">
+                  <i class="fa-solid-edit fa-solid fa-file-pen"></i>
+                </a>
+              </td>
+              <td>
+                <a
+                  href="/campus/{{this._doc._id}}/delete"
+                  data-toggle="modal"
+                  data-id="{{this._doc._id}}"
+                  data-target="#delete-saying-modal"
+                >
+                  <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="5" class="text-center">
+                Bạn chưa có thông tin. Hãy đi tạo mới thông tin
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </form>
+    {{!-- create --}}
+    <div
+      class="modal fade"
+      id="create-saying-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">ADD NEW DATA</h5>
             <button
               type="button"
-              class="btn btn-secondary"
+              class="close"
               data-dismiss="modal"
-            >Close</button>
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-        </form>
+          <div class="modal-body">
+            <form method="POST" action="/campus/create" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="name">Name User</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
+              </div>
+              {{!-- <div class="form-group">
+                <label for="imageAvatar">Avatar User</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="imageAvatar"
+                  name="imageAvatar"
+                  required
+                />
+              </div> --}}
+              <div class="form-group">
+                <input type="file" class="form-control" id="avatar" name="avatar" required/>
+                <label for="avatar" class="avatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
+                <div class="img-showImg"></div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Add Data</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >Close</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
+
+    {{!-- delete --}}
+    <div class="modal fade" id="delete-saying-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              You want delete data ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btn-delete-saying" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <form name="delete-saying-form" method="POST">
+    </form>
   </div>
 </div>
 
-{{!-- delete --}}
-<div class="modal fade" id="delete-saying-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          You want delete data ?
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btn-delete-saying" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<form name="delete-saying-form" method="POST">
-</form>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
       let sayingId = 0;
@@ -186,5 +193,12 @@ m
         deleteForm.action = '/campus/' + sayingId + '?_method=DELETE';
         deleteForm.submit();
       }
+      let input=document.querySelector('input')
+    input.addEventListener('change',function(){
+    const reader=new FileReader()
+    reader.addEventListener('load',function(){
+    document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`
+    })
+    reader.readAsDataURL(this.files[0])
     })
 </script>
