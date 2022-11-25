@@ -55,6 +55,12 @@ class SlideBarControllor {
       .then(() => res.redirect("back"))
       .catch(next);
   }
+  // force
+  forceDelete(req, res, next) {
+    SlideBar.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
   // restore
   restore(req, res, next) {
     SlideBar.restore({ _id: req.params.id })

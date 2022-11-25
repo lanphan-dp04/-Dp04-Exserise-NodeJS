@@ -54,6 +54,12 @@ class SayingControllor {
       .then(() => res.redirect("back"))
       .catch(next);
   }
+  // forceDelete
+  forceDelete(req, res, next) {
+    Saying.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
 
   //restore
   restore(req, res, next) {

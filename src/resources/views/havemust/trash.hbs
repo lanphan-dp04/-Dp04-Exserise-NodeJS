@@ -142,7 +142,7 @@
     })
     const btnDeleteHavemust = document.getElementById('btn-delete-havemust');
     btnDeleteHavemust.onclick = function () {
-      deleteForm.action = '/must-have/' + havemustId + '?_method=DELETE';
+      deleteForm.action = '/must-have/' + havemustId + '/force?_method=DELETE';
       deleteForm.submit();
     }
     // restore

@@ -143,7 +143,7 @@
       })
       const btnDeleteslideBar = document.getElementById('btn-delete-slideBar');
       btnDeleteslideBar.onclick = function() {
-        deleteForm.action = '/slideBar/' + slideBarId + '?_method=DELETE';
+        deleteForm.action = '/slideBar/' + slideBarId + '/force?_method=DELETE';
         deleteForm.submit();
       }
       // restore
