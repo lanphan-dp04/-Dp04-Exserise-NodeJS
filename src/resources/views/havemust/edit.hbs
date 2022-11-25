@@ -4,7 +4,7 @@
   <div class="col-lg-10">
     <div class="container-form">
       <h3 class="editdataform-title">
-        Edit Data About Devplus
+        Edit Data Have Must Devplus
       </h3>
       <div class="form-warapper">
         <form method="POST" action="/must-have/{{data._id}}?_method=PUT" enctype="multipart/form-data">
@@ -21,12 +21,20 @@
         <input type="text" value="{{data.icon}}" class="form-control" id="icon" name="icon" required />
       </div> --}}
       <div class="form-group">
+        <label for="course">Image</label>
         <input type="file" class="form-control" id="icon" name="icon" required/>
         <label for="icon" class="icon">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
         <div class="img-showImg" style="background-image: url({{data.icon}});"></div>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Edit Data</button>
+          <a href="/must-have/list">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </a>
       </div>
     </form>
       </div>
@@ -35,8 +43,9 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    let input=document.querySelector('input')
+    let input=document.getElementById('icon')
     input.addEventListener('change',function(){
+    console.log(input)
     const reader=new FileReader()
     reader.addEventListener('load',function(){
     document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`

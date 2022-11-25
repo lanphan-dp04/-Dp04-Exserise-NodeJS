@@ -4,22 +4,25 @@
   <div class="col-lg-10"> 
   <div class="container-form">
     <h3 class="editdataform-title">
-      Edit Data DevPlus slideBar
+      Edit Data DevPlus SlideBar
     </h3>
     <div class="form-warapper">
       <form method="POST" action="/slideBar/{{data._id}}?_method=PUT" enctype="multipart/form-data">
     <div class="form-group">
+      <label for="course">Image</label>
       <input type="file" class="form-control" id="src" name="src" required />
       <label for="src" class="src">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
       <div class="img-showImg" style="background-image: url({{data.src}});"></div>
     </div>
     <div class="modal-footer">
       <button type="submit" class="btn btn-primary">Add Data</button>
-      <button
-        type="button"
-        class="btn btn-secondary"
-        data-dismiss="modal"
-      >Close</button>
+      <a href="/slideBar/list">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </a>
     </div>
   </form>
     </div>

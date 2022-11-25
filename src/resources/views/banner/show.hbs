@@ -17,7 +17,7 @@
     action="/khoa-hoc/handle-form-action"
   >
     <div>
-      <h3 class="text-center pb-4 havemust-title">slideBar DevPlus</h3>
+      <h3 class="text-center pb-4 havemust-title">SlideBar DevPlus</h3>
       {{!-- {{#if deletedCount}} --}}
       {{!-- {{/if}} --}}
       <div class="havemust-box">
@@ -170,6 +170,7 @@
     input.addEventListener('change',function(){
     const reader=new FileReader()
     reader.addEventListener('load',function(){
+      console.log(input)
     document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`
     })
     reader.readAsDataURL(this.files[0])
