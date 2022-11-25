@@ -133,7 +133,7 @@
     })
     const btnDeleteSaying = document.getElementById('btn-delete-saying');
     btnDeleteSaying.onclick = function () {
-      deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
+      deleteForm.action = '/saying/' + sayingId + '/force?_method=DELETE';
       deleteForm.submit();
     }
     // restore

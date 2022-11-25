@@ -12,6 +12,10 @@
               <i class="fa-solid fa-trash-arrow-up"></i>
               {{deletedCount}}</a>
           </div>
+          <div>
+            <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-saying-modal"
+              class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
+          </div>
         </div>
       </div>
       <table class="table-havemust table table-bordered table-striped">
@@ -111,7 +115,7 @@
             You want delete data ?
           </div>
           <div class="modal-footer">
-            <button type="button" id="btn-delete-saying" class="btn btn-primary">Save changes</button>
+            <button type="button" id="btn-delete-saying" class="btn btn-danger">Delete</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
@@ -144,6 +148,6 @@
     document.querySelector('.img-showImg').style.backgroundImage=`url(${reader.result})`
     })
     reader.readAsDataURL(this.files[0])
-    }
+    })
   })
 </script>
