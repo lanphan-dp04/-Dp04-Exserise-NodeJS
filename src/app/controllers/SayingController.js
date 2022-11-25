@@ -25,8 +25,7 @@ class SayingControllor {
       .catch(next);
   }
   create(req, res, next) {
-    req.body.imageAvatar =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+    req.body.imageAvatar = req.file.path;
     const formData = req.body;
     const data = new Saying(formData);
     data
@@ -43,8 +42,7 @@ class SayingControllor {
       .catch(next);
   }
   update(req, res, next) {
-    req.body.imageAvatar =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+    req.body.imageAvatar = req.file.path;
     Saying.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/saying/list"))
       .catch(next);

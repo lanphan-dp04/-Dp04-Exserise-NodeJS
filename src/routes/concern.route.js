@@ -6,7 +6,7 @@ const concernControllor = require("../app/controllers/ConcernController");
 const { checkAuth } = require("../util");
 
 router.get("/api/", concernControllor.get);
-router.get("/list",checkAuth, checkAuth, concernControllor.show);
+router.get("/list",checkAuth, concernControllor.show);
 router.get("/trash", checkAuth, concernControllor.trash);
 router.post("/create",checkAuth, concernControllor.create);
 router.get("/:id/edit",checkAuth, concernControllor.edit);
