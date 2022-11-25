@@ -26,7 +26,7 @@ class SayingControllor {
   }
   create(req, res, next) {
     req.body.imageAvatar =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     const formData = req.body;
     const data = new Saying(formData);
     data
@@ -44,7 +44,7 @@ class SayingControllor {
   }
   update(req, res, next) {
     req.body.imageAvatar =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     Saying.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/saying/list"))
       .catch(next);

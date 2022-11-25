@@ -17,7 +17,7 @@ class CampusControllor {
       .catch(next);
   }
   create(req, res, next) {
-    req.body.avatar = 'http://localhost:5000/'+req.file.path.split('\\').slice(2).join('/');
+    req.body.avatar = 'https://dp-04-nodejs-pls.herokuapp.com/'+req.file.path.split('\\').slice(2).join('/');
     const formData = req.body;
     const data = new Campus(formData);
     data
@@ -34,7 +34,7 @@ class CampusControllor {
       .catch(next);
   }
   update(req, res, next) {
-    req.body.avatar = 'http://localhost:5000/'+req.file.path.split('\\').slice(2).join('/');
+    req.body.avatar = 'https://dp-04-nodejs-pls.herokuapp.com/'+req.file.path.split('\\').slice(2).join('/');
     Campus.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/campus/list"))
       .catch(next);

@@ -25,8 +25,9 @@ class MustHaveControllor {
       .catch(next);
   }
   create(req, res, next) {
+    console.log(req.file)
     req.body.icon =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     const formData = req.body;
     const data = new MustHave(formData);
     data
@@ -44,7 +45,7 @@ class MustHaveControllor {
   }
   update(req, res, next) {
     req.body.icon =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     MustHave.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/must-have/list"))
       .catch(next);

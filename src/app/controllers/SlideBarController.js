@@ -27,7 +27,7 @@ class SlideBarControllor {
 
   create(req, res, next) {
     req.body.src =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     const formData = req.body;
     const data = new SlideBar(formData);
     data
@@ -45,7 +45,7 @@ class SlideBarControllor {
   }
   update(req, res, next) {
     req.body.src =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+      "https://dp-04-nodejs-pls.herokuapp.com/" + req.file.path.split("\\").slice(2).join("/");
     SlideBar.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/slideBar/list"))
       .catch(next);
