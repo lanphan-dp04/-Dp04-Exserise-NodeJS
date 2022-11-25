@@ -5,27 +5,17 @@
   action="/khoa-hoc/handle-form-action"
 >
   <div>
-    <h3 class="text-center pb-4 havemust-title">slideBar DevPlus</h3>
-    {{!-- {{#if deletedCount}} --}}
-    {{!-- {{/if}} --}}
+    <h3 class="text-center pb-4 havemust-title">slideBar DevPlus Trash</h3>
     <div class="havemust-box">
       <div class="box-buttonfunction">
         <div>
-            <a href="/slideBar/trash" class="button-garbage button-addnewdata">
-             Garbage can
-              <i class="fa-solid fa-trash-arrow-up"></i>
+            <a href="/slideBar/list" class="button-garbage button-addnewdata">
+                Back List
+            <i class="fa-solid fa-rotate-left"></i></a>
             {{deletedCount}}</a>
         </div>
-        <div>
-          <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-slideBar-modal"
-            class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
-        </div>
       </div>
-
-
     </div>
-
-
   </div>
   <table class=" table-havemust table table-bordered table-striped">
     <thead>
@@ -45,12 +35,9 @@
             <img src="{{this._doc.src}}" alt="" srcset="" height="200">
           </td>
           <td class="col-1">
-            <a href="/slideBar/{{this._doc._id}}/edit"
-
-            {{!-- id="btn-create-course" --}}
-            {{!-- data-toggle="modal"
-            data-id="{{this._doc._id}}" --}}
-            data-target="#edit-slideBar-modal"><i class="fa-solid-edit fa-solid fa-file-pen"></i></a>
+            <a href="" data-target="#edit-havemust-modal"class="btn-restore" data-id="{{this._doc._id}}">
+              <i class="fa-solid fa-trash-can-arrow-up"></i>
+            </a>
           </td>
           <td class="col-1">
             <a
@@ -59,8 +46,9 @@
               data-toggle="modal"
               data-id="{{this._doc._id}}"
               data-target="#delete-slideBar-modal"
-            ><i
-              class="fa-sharp fa-solid-delete fa-solid fa-trash"></i></a>
+            >
+              <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
+            </a>
           </td>
         </tr>
       {{else}}
@@ -151,5 +139,15 @@
         deleteForm.action = '/slideBar/' + slideBarId + '?_method=DELETE';
         deleteForm.submit();
       }
+      // restore
+    var restoreBtn = $(".btn-restore");
+    // Restore btn clicked
+    restoreBtn.click(function (e) {
+      e.preventDefault();
+
+      var courseId = $(this).data('id');
+      deleteForm.action = '/slideBar/' + courseId + '/restore?_method=PATCH';
+      deleteForm.submit();
+    });
     })
 </script>
