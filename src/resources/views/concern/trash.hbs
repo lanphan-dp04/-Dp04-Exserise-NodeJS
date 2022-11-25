@@ -117,7 +117,7 @@
     })
     const btnDeleteConcern = document.getElementById('btn-delete-concern');
     btnDeleteConcern.onclick = function () {
-      deleteForm.action = '/concern/' + concernId + '?_method=DELETE';
+      deleteForm.action = '/concern/' + concernId + '/force?_method=DELETE';
       deleteForm.submit();
     }
     // restore
