@@ -50,6 +50,7 @@ app.get("/",checkAuth, (req, res) => {
 
 route(app);
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+});
