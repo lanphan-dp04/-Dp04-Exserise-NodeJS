@@ -44,6 +44,7 @@ app.set("views", path.join(__dirname, "resources", "views"));
 //HTTP logger
 app.use(morgan("combined"));
 
+
 app.get("/",checkAuth, (req, res) => {
   res.render("home");
 });
