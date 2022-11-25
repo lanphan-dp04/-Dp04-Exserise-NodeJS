@@ -18,6 +18,7 @@
     "mongoose": "^6.7.2",
     "mongoose-delete": "^0.5.4",
     "multer": "^1.4.5-lts.1",
+    "morgan": "^1.10.0",
     "node-sass": "^8.0.0"
   },
   "name": "dp04-exserise-nodejs",
@@ -25,7 +26,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {
-    "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   },
   "scripts": {
