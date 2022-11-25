@@ -39,9 +39,13 @@
   </div>
   <table class="table-havemust table table-bordered table-striped">
     <thead>
-        <th scope="col" >Index</th>
-        <th scope="col" class="col-4">Title</th>
-        <th scope="col" class="col-2">Image</th>
+m
+
+      <th scope="col" class="col-1">Check</th>
+        <th scope="col" class="col-1">Index</th>
+        <th scope="col" class="col-5">Title</th>
+        <th scope="col" class="col-4">Image</th>
+
         <th scope="col"  colspan="2">Action </th>
 
     </thead>
@@ -65,7 +69,6 @@
           <td>
             <a
               href="/campus/{{this._doc._id}}/delete"
-              class="btn btn-link"
               data-toggle="modal"
               data-id="{{this._doc._id}}"
               data-target="#delete-saying-modal"
