@@ -26,8 +26,7 @@ class SlideBarControllor {
   }
 
   create(req, res, next) {
-    req.body.src =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+    req.body.src = req.file.path;
     const formData = req.body;
     const data = new SlideBar(formData);
     data
@@ -44,8 +43,7 @@ class SlideBarControllor {
       .catch(next);
   }
   update(req, res, next) {
-    req.body.src =
-      "http://localhost:5000/" + req.file.path.split("\\").slice(2).join("/");
+    req.body.src = req.file.path;
     SlideBar.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/slideBar/list"))
       .catch(next);

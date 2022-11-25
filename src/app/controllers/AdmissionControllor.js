@@ -43,7 +43,7 @@ class AdmissionControllor {
       .catch(next);
   }
   update(req, res, next) {
-    req.body.avatar = 'http://localhost:5000/'+req.file.path.split('\\').slice(2).join('/');
+    req.body.avatar = req.file.path;
     Admission.updateOne({ _id: req.params.id }, req.body)
       .then(() => res.redirect("/admission/list"))
       .catch(next);
