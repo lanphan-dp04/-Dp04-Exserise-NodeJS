@@ -33,10 +33,10 @@
   <table class="table-havemust table table-bordered table-striped">
     <thead>
       <tr>
-        <th scope="col">Check</th>
-        <th scope="col">Index</th>
-        <th scope="col">Title</th>
-        <th scope="col">Description</th>
+        <th scope="col" class="col-1">Check</th>
+        <th scope="col" class="col-1">Index</th>
+        <th scope="col" class="col-4">Title</th>
+        <th scope="col" class="col-5">Description</th>
         <th scope="col" colspan="2">Action </th>
 
       </tr>
@@ -58,7 +58,7 @@
               class="fa-solid-edit fa-solid fa-file-pen"></i></a>
         </td>
         <td>
-          <a href="/concern/{{this._doc._id}}/delete" class="btn btn-link" data-toggle="modal"
+          <a href="/concern/{{this._doc._id}}/delete" data-toggle="modal"
             data-id="{{this._doc._id}}" data-target="#delete-concern-modal">
             <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
 
