@@ -36,23 +36,19 @@ td img {
 
 .button-addnewdata {
     padding: 5px 15px;
-    margin-left: 50px;
     border-radius: 5px;
+    margin-left: 20px;
     color: #fff;
     background-color: #179931;
     border-color: #0d6efd;
     opacity: .65;   
 }
 
-.button-garbage {margin-left: 100px;}
-
 .havemust-box{
-    display: grid;
-    grid-template-columns: 60% auto;
 }
 
 .box-buttonfunction {
-    margin: 24px 0;
+    margin: 35px 0;
     display: flex;
-    justify-content: space-between
+    justify-content: end;
 }

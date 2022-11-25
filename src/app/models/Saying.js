@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const mongoose_delete = require("mongoose-delete");
 
 const Saying = new Schema({
   id: {
@@ -25,5 +25,6 @@ const Saying = new Schema({
     requited: true,
   },
 });
+Saying.plugin(mongoose_delete, { deletedAt: true, overrideMethods: "all" });
 
-module.exports = mongoose.model("Saying", Saying,'saying');
+module.exports = mongoose.model("Saying", Saying, "saying");
