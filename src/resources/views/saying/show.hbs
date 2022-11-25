@@ -34,13 +34,12 @@
   <table class="table-havemust table table-bordered table-striped">
     <thead>
       <tr class="column-title">
-        <th scope="col" >Check</th>
-        <th scope="col" >Index</th>
+        <th scope="col" class="col-1">Check</th>
+        <th scope="col" class="col-1">Index</th>
         <th scope="col" class="col-1">Name</th>
         <th scope="col" class="col-4">Title</th>
-        <th scope="col" class="col-2">Avatar</th>
-        <th scope="col" class="col-2">Created Time</th>
-        <th scope="col"  colspan="2">Action </th>
+        <th scope="col" class="col-3">Avatar</th>
+        <th scope="col" class="col-2" colspan="2">Action </th>
       </tr>
     </thead>
     </thead>
@@ -56,7 +55,6 @@
         <td>{{this._doc.name}}</td>
         <td>{{this._doc.title}}</td>
         <td><img src="{{this._doc.imageAvatar}}" alt="devplus"></td>
-        <td>{{this.createdAt}}</td>
         <td >
           <a href="/saying/{{this._doc._id}}/edit" data-target="#edit-saying-modal">
             <i class="fa-solid-edit fa-solid fa-file-pen"></i>

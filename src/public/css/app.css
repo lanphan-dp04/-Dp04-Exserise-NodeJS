@@ -106,7 +106,7 @@ td img {
 
 .editdataform-title {
   text-align: center;
-  margin: 20px 0;
+  margin: 20px 0 50px 0;
   color: #a4a8de;
   text-shadow: 1px 1px 2px #22aca8, 0 0 1em #45bf65; }
 
@@ -116,6 +116,12 @@ td img {
 .form-group label {
   font-weight: 500;
   margin-top: 10px; }
+
+.form-group {
+  margin: 20px 0; }
+
+.modal-footer {
+  border-top: none; }
 
 .button-logout img {
   max-width: 100%;
