@@ -8,13 +8,12 @@ const db = require("./config/db");
 let cors = require("cors");
 const google = require('googleapis');
 const cookieParser = require("cookie-parser");
-// const {uploadFile} = require('./app/models/Upload');
 const app = express()
 const port = 5000
 
 const route = require("./routes/index.route");
 app.use(express.static(path.join(__dirname, "public")));
-// uploadFile();
+app.use('/asset', express.static('./asset'))
 
 //connect db
 db.connect();
@@ -48,7 +47,6 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-// route innit
 route(app);
 
 app.listen(port, () => {

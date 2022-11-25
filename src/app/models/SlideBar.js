@@ -8,27 +8,10 @@ const SliderBar = new Schema({
     requited: true,
     maxLength: 255,
   },
-  description: {
+  src: {
     type: String,
     requited: true,
   },
-  logo: {
-    type: String,
-    requited: true,
-  },
-  images: [
-    {
-      id: {
-        type: String,
-        requited: true,
-        maxLength: 255,
-      },
-      src: {
-        type: String,
-        requited: true,
-      },
-    },
-  ],
 });
 SliderBar.plugin(mongoose_delete, { deletedAt: true, overrideMethods: "all" });
 
