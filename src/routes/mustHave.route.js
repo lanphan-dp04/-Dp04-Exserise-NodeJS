@@ -4,15 +4,15 @@ const router = express.Router();
 
 const mustHaveControllor = require("../app/controllers/MustHaveController");
 const upload = require("../util/multer");
+const { checkAuth } = require("../util");
 
 router.get("/api", mustHaveControllor.get);
-router.get("/list", mustHaveControllor.show);
-router.get("/trash", mustHaveControllor.trash);
-router.post("/create", upload.single("icon"), mustHaveControllor.create);
-router.get("/:id/edit", mustHaveControllor.edit);
-router.put("/:id", upload.single("icon"), mustHaveControllor.update);
-router.patch("/:id/restore", mustHaveControllor.restore);
-router.delete("/:id", mustHaveControllor.delete);
-router.delete("/:id/force", mustHaveControllor.forceDelete);
+router.get("/list",checkAuth, mustHaveControllor.show);
+router.get("/trash",checkAuth, mustHaveControllor.trash);
+router.post("/create",checkAuth, upload.single("icon"), mustHaveControllor.create);
+router.get("/:id/edit",checkAuth, mustHaveControllor.edit);
+router.put("/:id",checkAuth, upload.single("icon"), mustHaveControllor.update);
+router.patch("/:id/restore",checkAuth, mustHaveControllor.restore);
+router.delete("/:id",checkAuth, mustHaveControllor.delete);
 
 module.exports = router;

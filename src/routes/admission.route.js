@@ -4,12 +4,13 @@ const router = express.Router();
 
 const admissionControllor = require("../app/controllers/AdmissionControllor");
 const upload = require("../util/multer");
+const { checkAuth } = require("../util");
 
 router.get("/api", admissionControllor.get);
-router.get("/list", admissionControllor.show);
-router.post("/create", admissionControllor.create);
-router.get("/:id/edit", admissionControllor.edit);
-router.put("/:id",upload.single('avatar'), admissionControllor.update);
-router.delete("/:id", admissionControllor.delete);
+router.get("/list",checkAuth, admissionControllor.show);
+router.post("/create",checkAuth, admissionControllor.create);
+router.get("/:id/edit",checkAuth, admissionControllor.edit);
+router.put("/:id",checkAuth,upload.single('avatar'), admissionControllor.update);
+router.delete("/:id",checkAuth, admissionControllor.delete);
 
 module.exports = router;
