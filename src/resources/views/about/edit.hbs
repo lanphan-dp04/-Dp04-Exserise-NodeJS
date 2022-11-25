@@ -2,22 +2,21 @@
 <div class="row">
   {{>nav}}
   <div class="col-lg-10">
-  <div class="container-form">
-    <h3 class="editdataform-title">
-      Edit Data About Devplus
-    </h3>
-    <div class="form-warapper">
-      <form method="POST" action="/about/{{data._id}}?_method=PUT">
-    <div class="form-group">
-      <label for="title">Title for About Devplus</label>
-      <input type="text" value="{{data.title}}" class="form-control" id="title" name="title" required />
+<div class="container-form">
+  <h3 class="editdataform-title">
+    Edit Data About Devplus
+  </h3>
+  <div class="form-warapper">
+    <form method="POST" action="/about/{{data._id}}?_method=PUT">
+      <div class="form-group">
+        <label for="title">Title for About Devplus</label>
+        <input type="text" value="{{data.title}}" class="form-control" id="title" name="title" required />
       </div>
+
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Add Data</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </form>
-    </div>
   </div>
   </div>
-</div>

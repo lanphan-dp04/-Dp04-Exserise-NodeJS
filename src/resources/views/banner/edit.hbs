@@ -9,8 +9,8 @@
     <div class="form-warapper">
       <form method="POST" action="/slideBar/{{data._id}}?_method=PUT" enctype="multipart/form-data">
     <div class="form-group">
+      <label for="src" class="src">Select file<i class="fa-solid fa-cloud-arrow-down"></i></label>
       <input type="file" class="form-control" id="src" name="src" required />
-      <label for="src" class="src">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
       <div class="img-showImg" style="background-image: url({{data.src}});"></div>
     </div>
     <div class="modal-footer">

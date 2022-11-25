@@ -117,6 +117,9 @@ td img {
   font-weight: 500;
   margin-top: 10px; }
 
+.modal-footer {
+  border-top: none; }
+
 .button-logout img {
   max-width: 100%;
   width: 50px;
@@ -175,6 +178,9 @@ td img {
 
 .navbar-expand-lg {
   justify-content: space-between; }
+
+.nav-item-wrapper {
+  margin-top: 20px; }
 
 .item-user {
   padding-right: 40px; }
