@@ -5,5 +5,12 @@ module.exports = {
     } else {
       next();
     }
+  },
+  isAuth: function(req, res, next) {
+    if (req.cookies.access_token) {
+      res.redirect('/');
+    } else {
+      next();
+    }
   }
 }

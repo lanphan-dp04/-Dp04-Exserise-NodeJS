@@ -5,7 +5,7 @@ class UserControllor {
   get(req, res, next) {
     res.render("login/login");
   }
-  
+
   post(req, res, next) {
     const username = req.body.username;
     const password = req.body.password;
@@ -27,6 +27,19 @@ class UserControllor {
         }
       })
       .catch(next);
+  }
+  delete(req, res, next) {
+    console.log(req.cookies);
+    if (req.cookies.access_token) {
+      res
+        .cookie("access_token", "", {
+          httpOnly: true,
+        })
+        .status(200)
+        .redirect("/login");
+    } else {
+      return res.redirect("/login");
+    }
   }
 }
 
