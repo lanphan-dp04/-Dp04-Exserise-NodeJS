@@ -3,7 +3,7 @@
   {{>nav}}
   <div class="col-lg-10">
     <form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
-      <h3 class="text-center pb-4 havemust-title">DevPlus What alumni saying</h3>
+      <h3 class="text-center pb-4 havemust-title">DevPlus What Alumni Saying</h3>
       <div class="havemust-box">
         <div class="box-buttonfunction">
           <div>
@@ -78,6 +78,7 @@
                 <input type="text" class="form-control" id="imageAvatar" name="imageAvatar" required />
               </div> --}}
               <div class="form-group">
+                <label for="course">Image</label>
                 <input type="file" class="form-control" id="imageAvatar" name="imageAvatar" required/>
                 <label for="imageAvatar" class="imageAvatar">Select file<i class="fa-solid fa-cloud-arrow-up"></i></label>
                 <div class="img-showImg"></div>
@@ -141,7 +142,7 @@
       deleteForm.action = '/saying/' + sayingId + '?_method=DELETE';
       deleteForm.submit();
     }
-    let input=document.querySelector('input')
+    let input=document.getElementById('imageAvatar')
     input.addEventListener('change',function(){
     const reader=new FileReader()
     reader.addEventListener('load',function(){

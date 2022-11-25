@@ -10,12 +10,17 @@
       <form method="POST" action="/about/{{data._id}}?_method=PUT">
     <div class="form-group">
       <label for="title">Title for About Devplus</label>
-      <input type="text" value="{{data.title}}" class="form-control" id="title" name="title" required />
+      <textarea type="text"  class="form-control" id="title" name="title" required>{{data.title}} </textarea>
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Add Data</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
+        <a href="/about/list">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </a>
     </form>
     </div>
   </div>
