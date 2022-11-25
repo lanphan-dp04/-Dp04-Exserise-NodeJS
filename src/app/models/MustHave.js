@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const mongoose_delete = require("mongoose-delete");
 
 const MustHave = new Schema({
   id: {
@@ -21,5 +21,6 @@ const MustHave = new Schema({
     requited: true,
   },
 });
+MustHave.plugin(mongoose_delete, { deletedAt: true, overrideMethods: "all" });
 
-module.exports = mongoose.model("MustHave", MustHave,'musthave');
+module.exports = mongoose.model("MustHave", MustHave, "musthave");
