@@ -1,4 +1,5 @@
 @import url("../node_modules/font-awesome/css/font-awesome.min.css");
+@import url(https://fonts.googleapis.com/css?family=Oswald:400);
 .section-login {
   padding: 100px 0; }
   .section-login .user_card {
@@ -88,24 +89,17 @@ td img {
 
 .button-addnewdata {
   padding: 5px 15px;
-  margin-left: 50px;
   border-radius: 5px;
+  margin-left: 20px;
   color: #fff;
   background-color: #179931;
   border-color: #0d6efd;
   opacity: .65; }
 
-.button-garbage {
-  margin-left: 100px; }
-
-.havemust-box {
-  display: grid;
-  grid-template-columns: 60% auto; }
-
 .box-buttonfunction {
-  margin: 24px 0;
+  margin: 35px 0;
   display: flex;
-  justify-content: space-between; }
+  justify-content: end; }
 
 .container-form {
   margin: 100px; }
@@ -122,6 +116,45 @@ td img {
 .form-group label {
   font-weight: 500;
   margin-top: 10px; }
+
+.button-logout img {
+  max-width: 100%;
+  width: 50px;
+  border-radius: 50px;
+  float: left; }
+
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s; }
+
+.button-logout {
+  text-decoration: none;
+  float: right;
+  margin: 15px;
+  color: white;
+  width: 50px;
+  background-color: #212529;
+  transition: width .35s;
+  -webkit-transition: width .35s;
+  overflow: hidden; }
+
+.button-logout:hover {
+  width: 150px; }
+
+.box-button {
+  width: 100px;
+  margin: 0 50px; }
+
+.button-logout:hover .logout {
+  opacity: .9; }
 
 .column-title {
   background: #858fb8; }

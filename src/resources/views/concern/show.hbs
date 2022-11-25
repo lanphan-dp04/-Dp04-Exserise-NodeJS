@@ -1,34 +1,18 @@
 <form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
   <h3 class="text-center pb-4 havemust-title">DevPlus Concern</h3>
-
   <div class="havemust-box">
-    <div class="mt-4 mb-4 d-flex align-items-center">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="checkbox-all" />
-        <label class="form-check-label" for="checkbox-all">Select All</label>
-      </div>
-      <select class="form-control form-control-sm checkbox-select-all-options" name="action" required>
-        <option value="">-- Action --</option>
-        <option>Delete</option>
-      </select>
-      <button class=" btn btn-primary btn-sm check-all-submit-btn disabled">Submit</button>
-    </div>
-
     <div class="box-buttonfunction">
       <div>
-        <a href="/me/trash/courses" class="button-garbage button-addnewdata">
+        <a href="/concern/trash" class="button-garbage button-addnewdata">
           Garbage can
           <i class="fa-solid fa-trash-arrow-up"></i>
           {{deletedCount}}</a>
       </div>
-
       <div>
         <a href="" data-toggle="modal" data-id="{{this._doc._id}}" data-target="#create-concern-modal"
           class="button-addnewdata">Add New <i class="fa-solid fa-plus"></i> </a>
       </div>
     </div>
-
-
   </div>
   <table class="table-havemust table table-bordered table-striped">
     <thead>
@@ -37,18 +21,13 @@
         <th scope="col" class="col-1">Index</th>
         <th scope="col" class="col-4">Title</th>
         <th scope="col" class="col-5">Description</th>
-        <th scope="col" colspan="2">Action </th>
 
+        <th scope="col" colspan="2">Action </th>
       </tr>
     </thead>
     <tbody>
       {{#each data}}
       <tr>
-        <td>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" name="concernId[]" value="{{this._doc._id}}" />
-          </div>
-        </td>
         <th scope="row">{{sum @index 1}}</th>
         <td>{{this._doc.title}}</td>
         <td>{{this._doc.desc}}</td>
@@ -61,16 +40,12 @@
           <a href="/concern/{{this._doc._id}}/delete" data-toggle="modal"
             data-id="{{this._doc._id}}" data-target="#delete-concern-modal">
             <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
-
           </a>
         </td>
       </tr>
       {{else}}
       <tr>
-        <td colspan="5" class="text-center">
-          Bạn chưa đăng khóa học nào.
-          <a href="/khoa-hoc/create">Tạo mới khóa học</a>
-        </td>
+        <td colspan="5" class="text-center">Bạn chưa có thông tin. Hãy đi tạo mới thông tin</td>
       </tr>
       {{/each}}
     </tbody>
@@ -106,7 +81,6 @@
     </div>
   </div>
 </div>
-
 {{!-- delete --}}
 <div class="modal fade" id="delete-concern-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label"
   aria-hidden="true">
@@ -128,7 +102,6 @@
     </div>
   </div>
 </div>
-
 <form name="delete-concern-form" method="POST">
 </form>
 <script>

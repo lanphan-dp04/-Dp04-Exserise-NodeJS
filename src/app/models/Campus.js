@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-
+const mongoose_delete = require("mongoose-delete");
 
 const Campus = new Schema({
   id: {
@@ -17,5 +17,6 @@ const Campus = new Schema({
     requited: true,
   },
 });
+Campus.plugin(mongoose_delete, { deletedAt: true, overrideMethods: "all" });
 
-module.exports = mongoose.model("Campus", Campus,'campus');
+module.exports = mongoose.model("Campus", Campus, "campus");

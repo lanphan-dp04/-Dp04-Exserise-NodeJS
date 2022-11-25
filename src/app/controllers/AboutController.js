@@ -17,6 +17,14 @@ class AboutController {
       })
       .catch(next);
   }
+  // link to trash
+  trash(req, res, next) {
+    About.findDeleted({})
+      .then((data) => {
+        res.render("about/trash", { data });
+      })
+      .catch(next);
+  }
   create(req, res, next) {
     const formData = req.body;
     const data = new About(formData);
@@ -38,7 +46,20 @@ class AboutController {
       .then(() => res.redirect("/about/list"))
       .catch(next);
   }
+
+  restore(req, res, next) {
+    About.restore({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+
   delete(req, res, next) {
+    About.delete({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+  //xóa vĩnh viễn
+  forceDelete(req, res, next) {
     About.deleteOne({ _id: req.params.id })
       .then(() => res.redirect("back"))
       .catch(next);

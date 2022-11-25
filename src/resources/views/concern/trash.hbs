@@ -1,0 +1,126 @@
+<form class="container mt-4" name="container-form" method="POST" action="/khoa-hoc/handle-form-action">
+  <h3 class="text-center pb-4 havemust-title">DevPlus Concern Trash</h3>
+  <div class="havemust-box">
+    <div class="box-buttonfunction">
+      <div>
+        <a href="/concern/list" class="button-garbage button-addnewdata">
+          Back List
+            <i class="fa-solid fa-rotate-left"></i></a>
+          {{deletedCount}}</a>
+      </div>
+    </div>
+  </div>
+  <table class="table-havemust table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Index</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col" colspan="2">Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this._doc.title}}</td>
+        <td>{{this._doc.desc}}</td>
+        <td>
+          <a href="" data-target="#edit-havemust-modal"class="btn-restore" data-id="{{this._doc._id}}">
+            <i class="fa-solid fa-trash-can-arrow-up"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/concern/{{this._doc._id}}/delete" class="btn btn-link" data-toggle="modal"
+            data-id="{{this._doc._id}}" data-target="#delete-concern-modal">
+            <i class="fa-sharp fa-solid-delete fa-solid fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="5" class="text-center">Bạn chưa có thông tin. Hãy đi tạo mới thông tin</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</form>
+{{!-- create --}}
+<div class="modal fade" id="create-concern-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ADD NEW DATA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/concern/create">
+          <div class="form-group">
+            <label for="title">Name Data</label>
+            <input type="text" class="form-control" id="title" name="title" required />
+          </div>
+          <div class="form-group">
+            <label for="desc">Desc Data</label>
+            <input type="text" class="form-control" id="desc" name="desc" required />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add Data</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- delete --}}
+<div class="modal fade" id="delete-concern-modal" tabindex="-1" role="dialog" aria-labelledby="delete-Label"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You want delete data ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="btn-delete-concern" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form name="delete-concern-form" method="POST">
+</form>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let concernId = 0;
+    const deleteForm = document.forms['delete-concern-form']
+    $('#delete-concern-modal').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget) // Button that triggered the modal
+      concernId = button.data('id') // Extract info from data-* attributes   
+    })
+    const btnDeleteConcern = document.getElementById('btn-delete-concern');
+    btnDeleteConcern.onclick = function () {
+      deleteForm.action = '/concern/' + concernId + '?_method=DELETE';
+      deleteForm.submit();
+    }
+    // restore
+    var restoreBtn = $(".btn-restore");
+    // Restore btn clicked
+    restoreBtn.click(function (e) {
+      e.preventDefault();
+
+      var courseId = $(this).data('id');
+      deleteForm.action = '/concern/' + courseId + '/restore?_method=PATCH';
+      deleteForm.submit();
+    });
+  })
+</script>

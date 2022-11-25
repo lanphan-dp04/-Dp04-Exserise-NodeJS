@@ -23,7 +23,7 @@
 
     <div class="box-buttonfunction">
       <div>
-        <a href="/me/trash/courses" class="button-garbage button-addnewdata">
+        <a href="/campus/trash" class="button-garbage button-addnewdata">
           Garbage can
           <i class="fa-solid fa-trash-arrow-up"></i>
           {{deletedCount}}</a>
@@ -39,27 +39,19 @@
   </div>
   <table class="table-havemust table table-bordered table-striped">
     <thead>
+m
 
       <th scope="col" class="col-1">Check</th>
         <th scope="col" class="col-1">Index</th>
         <th scope="col" class="col-5">Title</th>
         <th scope="col" class="col-4">Image</th>
+
         <th scope="col"  colspan="2">Action </th>
 
     </thead>
     <tbody>
       {{#each data}}
         <tr>
-          <td>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                name="sayingId[]"
-                value="{{this._doc._id}}"
-              />
-            </div>
-          </td>
           <th scope="row">{{sum @index 1}}</th>
           <td>{{this._doc.name}}</td>
 
@@ -88,8 +80,7 @@
       {{else}}
         <tr>
           <td colspan="5" class="text-center">
-            Bạn chưa đăng khóa học nào.
-            <a href="/khoa-hoc/create">Tạo mới khóa học</a>
+            Bạn chưa có thông tin. Hãy đi tạo mới thông tin
           </td>
         </tr>
       {{/each}}
